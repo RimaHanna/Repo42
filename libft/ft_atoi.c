@@ -13,21 +13,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_ispower(int x, int y)
-{
-	int	i;
-	int	res;
-
-	i = 0;
-	res = 1;
-	while (i < y)
-	{
-		res = res * x;
-		i++;
-	}
-	return (res);
-}
-
 int	ft_isdigit(char c)
 {
 	return ('0' <= c && c <= '9');
@@ -60,11 +45,12 @@ int	ft_atoi(const char *str)
 	while ((str[i]) && (ft_isdigit(str[i])))
 	{
 		res = (res * 10) + (str[i] - '0');
+		printf("res: %d\n", res);
 		i++;
 	}
 	return (res * sign);
 }
-/*
+
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -72,4 +58,4 @@ int main(int argc, char **argv)
 	printf("mon atoi --> %i\n", ft_atoi(argv[1]));
 	return 0;
 }
-*/
+
