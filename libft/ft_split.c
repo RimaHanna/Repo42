@@ -68,7 +68,7 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-
+/*
 int main()
 {
 	char s1[] = "askdhiuydtrrd";
@@ -82,3 +82,4 @@ int main()
 	}
 	return 0;
 }
+*/

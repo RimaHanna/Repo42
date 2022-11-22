@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
+#include <stdio.h>
+#include <bsd/string.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -47,8 +50,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 /*
 //the library of strlcpy takes bsd/string.h and
  when compailing i have to add -lbsd in the end
-#include <bsd/string.h>
-#include <stdio.h>
 int main()
 {
 	char str[] = "rima hanna";

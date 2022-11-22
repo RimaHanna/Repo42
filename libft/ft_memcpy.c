@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
+#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -27,7 +29,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 /*
-#include <stdio.h>
 int main()
 {
 	char dest[] = "rima hanna";

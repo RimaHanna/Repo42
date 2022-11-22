@@ -12,6 +12,8 @@
 
 #include <strings.h>
 #include <stddef.h>
+#include "libft.h"
+#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -30,7 +32,6 @@ void	ft_bzero(void *s, size_t n)
 }
 
 /*
-#include <stdio.h>
 int main()
 {
 	char str[] = "rima hanna";

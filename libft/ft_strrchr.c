@@ -10,17 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include <stddef.h>
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -38,8 +31,6 @@ char	*ft_strrchr(const char *s, int c)
 	return (0);
 }
 /*
-#include <stdio.h>
-#include <string.h>
 int main()
 {
 	char str[] = "rima";

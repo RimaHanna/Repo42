@@ -27,11 +27,6 @@ void ft_putstr_fd(char *s, int fd)
  * as the length of the given string. Write will then write string s to the
  * desired output.
 
-void		ft_putstr_fd(char const *s, int fd)
-{
-	write(fd, s, ft_strlen(s));
-}
-
 
 int main()
 {

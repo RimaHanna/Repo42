@@ -17,8 +17,11 @@
 		return (0);
 */
 #include <stddef.h>
+#include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
-chari	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -34,8 +37,6 @@ chari	*ft_strchr(const char *s, int c)
 	return (0);
 }
 /*
-#include <string.h>
-#include <stdio.h>
 int main()
 {
 	char *str = "rima";

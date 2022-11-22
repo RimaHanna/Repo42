@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <ctype.h>
+#include <stdio.h>
+
 int	ft_tolower(int c)
 {
 	if (c <= 'A' && c <= 'Z')
@@ -17,8 +21,6 @@ int	ft_tolower(int c)
 	return (c);
 }
 /*
-#include <ctype.h>
-#include <stdio.h>
 int main()
 {
 	char r = 'a';

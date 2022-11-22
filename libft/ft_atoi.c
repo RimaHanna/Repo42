@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
 int	ft_isdigit(char c)
 {
@@ -50,7 +51,7 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-
+/*
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -58,4 +59,4 @@ int main(int argc, char **argv)
 	printf("mon atoi --> %i\n", ft_atoi(argv[1]));
 	return 0;
 }
-
+*/

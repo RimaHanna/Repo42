@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* l23: dest sans rien c a d l'address de debut de la string*/
+/* l:25    dest sans rien c a d l'address de debut de la string*/
 #include <stdio.h>
+#include "libft.h"
+#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -41,8 +43,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 /*
 // !dest  cad il n y a pas d'address dans ce pointeur, il est null
-#include <stdio.h>
-#include <string.h>
 int main()
 {
 	char dest[] = "rima hanna";

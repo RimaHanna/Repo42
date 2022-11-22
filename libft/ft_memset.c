@@ -14,6 +14,8 @@
 /* l28: i am casting s into the type of s1*/
 /* l23: (!s) means that s is null*/
 #include <string.h>
+#include "libft.h"
+#include <stdio.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -36,7 +38,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s1);
 }
 /*
-#include <stdio.h>
 int main()
 {
 	char str[10] = "rima hanna";

@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
+#include <bsd/string.h>
+#include <stdio.h>
 
 char	*ft_strnstr(const char *s1, const char *toFind, size_t len)
 {
@@ -36,8 +39,6 @@ char	*ft_strnstr(const char *s1, const char *toFind, size_t len)
 	return (0);
 }
 /*
-#include <bsd/string.h>
-#include <stdio.h>
 int main()
 {
 	char s1[] = "rimahanna";

@@ -12,6 +12,9 @@
 
 #include <stddef.h>
 #include <unistd.h>
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 /*
 void display(char *str)
 {
@@ -45,8 +48,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (0);
 }
 /*
-#include <stdio.h>
-#include <string.h>
 int main()
 {
 	char str[] = "rimahnaa";

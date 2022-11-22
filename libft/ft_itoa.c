@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 int	ft_nb_of_digit(int n)
 {
@@ -55,7 +56,7 @@ char	*ft_itoa(int n)
 		div = div * 10;
 	return (ft_nb_to_str(n, negative, size, div));
 }
-
+/*
 int main()
 {
 	int n = -1234;
@@ -64,3 +65,4 @@ int main()
 
 		return 0;
 }
+*/
