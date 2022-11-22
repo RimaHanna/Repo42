@@ -18,7 +18,7 @@ RM = rm -f
 
 
 
-all = $(NAME)
+all:  $(NAME)
 
 $(NAME) : $(OBJS)
 				ar rcs $(NAME) $(OBJS)
@@ -31,4 +31,5 @@ fclean: clean
 
 re: fclean all
 
+.PHONY: all clean fclean re 
 
