@@ -1,25 +1,39 @@
-#include <stddef.h>
-char *ft_strchr(const char *s, int c)
-{
-	int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 17:10:19 by rhanna            #+#    #+#             */
+/*   Updated: 2022/11/14 17:11:50 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-// On ne vérifie pas si s est NULL pour avoir le même comportement que la fonction strchar
-// qui donne une segmentation fault si s est NULL 
-/*
+/* On ne vérifie pas si s est NULL pour avoir le même comportement
+ que la fonction strchar  qui donne une segmentation fault si s est NULL 
+
 	if (s == NULL)
 		return (0);
 */
+#include <stddef.h>
+
+chari	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
 	if (c == 0)
-		return (char *)&s[i];
+		return ((char *)&s[i]);
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (char *)&s[i];
+			return ((char *)&s[i]);
 		i++;
 	}
 	return (0);
 }
+/*
 #include <string.h>
 #include <stdio.h>
 int main()
@@ -38,4 +52,5 @@ int main()
 		printf("NULL\n");
 	return 0;
 }
+*/
 

@@ -1,25 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 13:10:27 by rhanna            #+#    #+#             */
+/*   Updated: 2022/11/14 13:26:31 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* l23: dest sans rien c a d l'address de debut de la string*/
 #include <stdio.h>
+
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)
-		return dest;
-	if (dest > src) // dest sans rien c a d l'address de debur de la string
+		return (dest);
+	if (dest > src)
+	{
 		while (n > 0)
 		{
 			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
 			n--;
 		}
+	}
 	else
+	{
 		while (i < n)
 		{
 			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 			i++;
-		}		
+		}
+	}	
 	return (dest);
 }
+
 /*
 // !dest  cad il n y a pas d'address dans ce pointeur, il est null
 #include <stdio.h>
@@ -42,13 +61,10 @@ int main()
 	memcpy(dest2, src2, n);
 	printf("dest2: %s, src2: %s\n", dest2, src2);
 
-	char str[] = "foo-bar";
-	memcpy(&str[3],&str[4],4); //might blow up
-	printf("str: %s\n", str);
-	
 	char str1[] = "foo-bar";
 	memmove(&str1[3],&str1[4],4); //fine	
 	printf("str1: %s\n", str1);
 	return 0;
 }
 */
+

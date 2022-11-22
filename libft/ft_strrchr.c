@@ -1,26 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 17:12:31 by rhanna            #+#    #+#             */
+/*   Updated: 2022/11/14 17:14:19 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int i = 0;
-	while (str[i])
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
 		i++;
-	return i;
+	}
+	return (i);
 }
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int len = ft_strlen(s);
+	int	len;
+
+	len = ft_strlen(s);
 	if ((char)c == '\0')
 		return ((char *)&s[len]);
 	while (len >= 0)
 	{
 		if (s[len] == (char)c)
-			return (char *)&s[len];
+			return ((char *)&s[len]);
 		len--;
 	}
 	return (0);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int main()
@@ -33,4 +50,5 @@ int main()
 	printf("%s\n", test);
 	return 0;
 }
+*/
 

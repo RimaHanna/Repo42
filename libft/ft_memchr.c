@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/15 10:51:12 by rhanna            #+#    #+#             */
+/*   Updated: 2022/11/15 10:51:46 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 #include <unistd.h>
 /*
@@ -17,10 +29,10 @@ void display(char *str)
 	write(1, "\n", 1);
 }
 */
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t i;
-	unsigned char *str;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
 	str = (unsigned char *)s;
@@ -48,3 +60,4 @@ int main()
 	return 0;
 }
 */
+
