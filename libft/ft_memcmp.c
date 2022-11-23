@@ -35,7 +35,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (str1[i] - str2[i]);
 	return (0);
 }
-
+/*
 // i am not having the same result but it might not be a problem
 int main()
 {
@@ -51,4 +51,4 @@ int main()
 	return 0;
 }
 
-
+*/
