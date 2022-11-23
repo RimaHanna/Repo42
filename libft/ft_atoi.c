@@ -10,26 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*We use long because it is guaranteed to
+be able to store, at the very least, values that lie within the range of
+ -2147483647 and 2147483647.*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"
-
-int	ft_isdigit(char c)
-{
-	return ('0' <= c && c <= '9');
-}
+#include <stddef.h>
 
 int	ft_isspace(char c)
 {
-	return (c == ' ' || c == '\f' || c == '\n'
-		 || c == '\r' || c == '\t' || c == '\v');
+	return (c == '\r' || c == '\f' || c == '\n'
+		 || c == ' ' || c == '\t' || c == '\v');
 }
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	unsigned int	i;
+	long			sign;
+	long			res;
 
 	res = 0;
 	sign = 1;
@@ -46,10 +46,9 @@ int	ft_atoi(const char *str)
 	while ((str[i]) && (ft_isdigit(str[i])))
 	{
 		res = (res * 10) + (str[i] - '0');
-		printf("res: %d\n", res);
 		i++;
 	}
-	return (res * sign);
+	return ((int)(res * sign));
 }
 /*
 int main(int argc, char **argv)

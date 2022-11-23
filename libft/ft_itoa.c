@@ -46,9 +46,15 @@ char	*ft_itoa(int n)
 	int		size;
 	int 	div;
 	int 	negative;
+	char	*str;
 
 	negative = n < 0;
 	div = 1;
+	if (n == -2147483648)
+	{
+		str = (char *)malloc(sizeof(char) * 12);
+		return (str = "-2147483648");
+	}
 	if (negative)
 		n = -n;
 	size = ft_nb_of_digit(n);
@@ -59,10 +65,9 @@ char	*ft_itoa(int n)
 /*
 int main()
 {
-	int n = -1234;
+	int n = -21474838;
 	char *ret = ft_itoa(n);
 	printf("string: %s\n", ret);
-
-		return 0;
+	return 0;
 }
 */

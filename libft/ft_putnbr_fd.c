@@ -41,7 +41,7 @@ void ft_putnbr_fd(int n, int fd)
 /*
 int main()
 {
-	int nb = -2;
+	int nb = -254;
 	ft_putnbr_fd(nb, 2);
 	return 0;
 

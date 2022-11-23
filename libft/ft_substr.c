@@ -5,8 +5,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*dup;
 
 	i = 0;
