@@ -17,7 +17,7 @@
 /*la 1ere fonction va voir si les caracters de s1 existe dans set
 elle renvoie 1 si les caracteres existent*/
 
-/* l: 34 on est en train de voir si les caracteres existent au debut de 
+/* l:  on est en train de voir si les caracteres existent au debut de 
 // la string et les depasser (donc on aura le nombre de caractere
 // de la debut de la chaine)*/
 
@@ -43,29 +43,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	size_t	i;
 	char	*str;
 
-	i = 0;
 	start = 0;
 	while (s1[start] && ft_find_char_in_set(s1[start], set))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && ft_find_char_in_set((end - 1), set))
+	while (end > start && ft_find_char_in_set(s1[end - 1], set))
 		end--;
-	str = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (!str)
-		return (NULL);
-	while (start < end)
-		str[i++] = s1[start++];
-	str[start] = '\0';
+	str = ft_substr(s1, start, end - start);
 	return (str);
 }
 /*
 int main()
 {
-	char s1[] = "rima hanri";
-	char s2[] = "r";
+	char s1[] = "abcdba";
+	char s2[] = "acb";
 	char *ret = ft_strtrim(s1, s2);
 	printf("%s\n", ret);
 	return 0;

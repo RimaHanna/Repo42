@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <limits.h>
 
 int	ft_nb_of_digit(int n)
 {
@@ -65,19 +66,20 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 	{
 		str = (char *)malloc(sizeof(char) * 12);
-		return (str = "-2147483648");
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
 	}
 	if (negative)
 		n = -n;
 	size = ft_nb_of_digit(n);
 	while (size-- > 1)
 		div = div * 10;
-	return (ft_nb_to_str(n, negative, size, div));
+	return (ft_nb_to_str(n, negative, ft_nb_of_digit(n), div));
 }
 /*
 int main()
 {
-	int n = -21474838;
+	int n = INT_MAX;
 	char *ret = ft_itoa(n);
 	printf("string: %s\n", ret);
 	return 0;

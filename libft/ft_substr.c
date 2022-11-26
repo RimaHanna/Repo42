@@ -20,10 +20,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 	char	*dup;
+	size_t	sizeS;
 
+	sizeS = ft_strlen(s);
 	i = 0;
 	j = 0;
-	while (s[start + i] && j < len)
+	while (((start + i) < sizeS) && s[start + i] && j < len)
 	{
 		i++;
 		j++;
@@ -43,11 +45,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int main()
 {
-	char str[] = "rima hanna";
-	int start = 4;
-	int size = 15;
-	char *dup = ft_substr(str, start, size);
-	printf("dup: %s\n", dup);
+	char str[] = "tribouille";
+	int start = 100;
+	int size = 1;
+	char *dup = ft_substr("tripouille", 100, 1);
+	printf("dup:%s\n", dup);
+return 0;
+	printf("sizeofdup%ld\n", sizeof(dup));
+	printf("sizeofchar:%ld\n", sizeof(char));
+	char *s = "";
+if (strcmp(dup, ""))
+	printf("if\n");
+else
+	printf("else\n"); 
 	return 0;
 }
 */
