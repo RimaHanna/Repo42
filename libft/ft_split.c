@@ -59,7 +59,10 @@ char	**ft_fill_split(char **split, const char *s, char c)
 		if (s[i] != c)
 			len++;
 		if (((s[i] == c) || (s[i + 1] == '\0')) && (len > 0))
+		{
 			split[count++] = ft_substr(s, start, len);
+			len = 0;
+		}		
 		i++;
 	}	
 	return (split);
@@ -75,19 +78,18 @@ char	**ft_split(char const *s, char c)
 	if (!split)
 		return (NULL);
 	split = ft_fill_split(split, s, c);
+	split[count] = NULL;
 	return (split);
 }
 
 /*
 int main()
 {
-	char s1[] = "askdhiuydtrrd";
-	char c = 'd';
 	int i = 0;
-	char **str = ft_split(s1, c);
+	char **str = ft_split("  tripouille  42  ", ' ');
 	while (str[i])
 	{
-		printf("str[%i] est %s\n", i, str[i]);
+		printf("str[%d]: %s\n", i, str[i]);
 		i++;
 	}
 	return 0;
