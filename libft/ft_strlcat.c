@@ -36,16 +36,28 @@ size_t	ft_strlcat(char *dst, const char *src, size_t destsize)
 		return (s + destsize);
 	return (d + s);
 }
+
 /*
-int    main()
+void    ft_print_result(int n)
 {
-    char    dest[] = "hello";
-    char    src[] = "saluttt";
-    printf("%s\n %s\n %li\n", dest, src, ft_strlcat(dest, src, 10));
+        char c;
 
+        if (n >= 10)
+                ft_print_result(n / 10);
+        c = n % 10 + '0';
+        write (1, &c, 1);
+}
 
-    char    dest1[] = "hello";
-    char    src1[] = "saluttt";
-    printf("%s\n %s\n %li\n", dest1, src1, strlcat(dest1, src1, 10));
-    return (0);
+int             main(int argc, const char *argv[])
+{
+        char    *dest;
+        if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
+                return (0);
+        memset(dest, 0, 15);
+        memset(dest, 'r', 6);
+                memset(dest, 'r', 15);
+        ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+        write(1, "\n", 1);
+               write(1, dest, 15);
+        write(1, "\n", 1);
 }*/
