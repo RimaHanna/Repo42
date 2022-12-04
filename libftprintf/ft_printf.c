@@ -17,6 +17,8 @@ int ft_formats(va_list args, const char format)
 		printf_len +=  */
 	else if (format == 'd' || format == 'i')
 		print_len += ft_putnbr(va_arg(args, int));
+	else if (format == 'u') // il ne prend pas des negatifs
+		print_len += ft_unsigned_putnbr(va_arg(args, int));
 	else if (format == '%')
 		print_len += ft_putchar('%');
 
@@ -56,10 +58,11 @@ int	ft_printf(const char *str, ...)
 int main()
 {
  
-	int i = ft_printf("%%\n");
+	int i = ft_printf("%u", -2147483648);
 	printf("the value of i is: %d\n", i);
 
-	int j = printf("%%\n");
-	printf("the value of printf is %d\n", j);
+/*	int j = printf("%u\n", -2147483648);
+	printf("the value of printf is %d\n", j);*/
 	return 0;
 }
+
