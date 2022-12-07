@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min_hex_putnbr.c                                :+:      :+:    :+:   */
+/*   ft_max_hex_putnbr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhanna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,17 +16,17 @@
 static void ft_x_putchar(char c)
 {
 	if (c == 10)
-		write(1, "a", 1);
+		write(1, "A", 1);
 	else if (c == 11)
-		write(1, "b", 1);
+		write(1, "B", 1);
 	else if (c == 12)
-		write(1, "c", 1);
+		write(1, "C", 1);
 	else if (c == 13)
-		write(1, "d", 1);
+		write(1, "D", 1);
 	else if (c == 14)
-		write(1, "e", 1);
+		write(1, "E", 1);
 	else if (c == 15)
-		write(1, "f", 1);
+		write(1, "F", 1);
 	else
 	{
 		c = c + '0';
@@ -49,14 +49,14 @@ static int      ft_size(unsigned int nb)
 }
 
 
-int     ft_min_hex_putnbr(unsigned int n)
+int     ft_max_hex_putnbr(unsigned int n)
 {
         int print_len;
 
         print_len = ft_size(n);
         if (n >= 16)
         {
-                ft_min_hex_putnbr(n / 16);
+                ft_max_hex_putnbr(n / 16);
         }
         ft_x_putchar (n % 16);
 		return (print_len);
@@ -65,7 +65,7 @@ int     ft_min_hex_putnbr(unsigned int n)
 /*
 int main()
 {
-	int ret = ft_min_hex_putnbr(-2147483648);
+	int ret = ft_max_hex_putnbr(-2147483648);
 	printf("\nret = %d\n", ret);
 
 	int i = printf("%x", -2147483648);

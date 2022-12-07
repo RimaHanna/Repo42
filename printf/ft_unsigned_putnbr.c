@@ -17,42 +17,36 @@ static int	ft_size(unsigned int nb)
 {
 	long int	size;
 
-	size = 1;
+	size = 0;
 	while (nb / 10 != 0)
 	{
-		size = size * 10;
+		size++;
 		nb = nb / 10;
 	}
+	size++;
 	return (size);
 }
 
 int	ft_unsigned_putnbr(unsigned int n)
 {
-	unsigned int	div;
-	int				print_size;
+	int print_len;
 
-	print_size = 0;
-	div = ft_size(n);
-	while (div / 10 != 0)
+	print_len = 0;
+	print_len = ft_size(n);
+
+	if (n >= 10)
 	{
-		print_size++;
-		ft_putchar((n / div) + '0');
-		n = n % div;
-		div = div / 10;
+		ft_unsigned_putnbr(n / 10);
 	}
-	print_size++;
-	ft_putchar(n + '0');
-	return (print_size);
+	ft_putchar((n % 10) + '0');
+	return (print_len);
 }
 
-// int    ft_unsigned_putnbr(unsigned int n)
-// {
-// 	if (n >= 10)
-// 	{
-// 			ft_putnbr(n / 10);
-// 			ft_putnbr(n % 10);
-// 	}
-// 	else
-// 			ft_putchar(n + 48);
-// 	return(ft_size1(n));
-// }
+/*
+int main()
+{
+	int ret = ft_unsigned_putnbr(-1234567);
+	printf("\n%d\n", ret);
+	return 0;
+}
+*/

@@ -21,8 +21,10 @@
 int	ft_printf(const char *str, ...);
 int	ft_putchar(int c);
 int	ft_putstr(char *str);
-int	ft_putnbr(int n);
+int	ft_putnbr(long int n);
 int	ft_unsigned_putnbr(unsigned int n);
 int	ft_min_hex_putnbr(unsigned int n);
+int	ft_max_hex_putnbr(unsigned int n);
+int	ft_pointer(unsigned long long int p);
 
 #endif

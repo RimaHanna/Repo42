@@ -17,44 +17,44 @@ static int	ft_size(int nb)
 {
 	int	size;
 
-	size = 1;
+	size = 0;
+	if (nb < 0)
+	{
+		nb = -nb;
+		size++;
+	}
 	while (nb / 10 != 0)
 	{
-		size = size * 10;
+		size++;
 		nb = nb / 10;
 	}
+	size++;
 	return (size);
 }
 
-int	int_min(void)
+int	ft_putnbr(long int n)
 {
-	write(1, "-2147483648", 11);
-	return (11);
-}
+	int print_len;
 
-int	ft_putnbr(int n)
-{
-	int	div;
-	int	print_size;
-
-	print_size = 0;
-	if (n == -2147483648)
-		return (int_min());
+	print_len = 0;
+	print_len = ft_size(n);
 	if (n < 0)
 	{
-		print_size++;
-		ft_putchar('-');
 		n = -n;
+		ft_putchar('-');
 	}
-	div = ft_size(n);
-	while (div / 10 != 0)
+	if (n >= 10)
 	{
-		print_size++;
-		ft_putchar((n / div) + '0');
-		n = n % div;
-		div = div / 10;
+		ft_putnbr(n / 10);
 	}
-	print_size++;
-	ft_putchar(n + '0');
-	return (print_size);
+	ft_putchar ((n % 10) + '0');
+	return (print_len);
 }
+
+/*
+int main()
+{
+	int len = ft_putnbr(-1212334);
+	printf("\n %d\n", len);
+	return 0;
+}*/

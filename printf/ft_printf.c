@@ -26,13 +26,16 @@ int	ft_formats(va_list args, const char format)
 		print_len += ft_putstr(va_arg(args, char *));
 	else if (format == 'd' || format == 'i')
 		print_len += ft_putnbr(va_arg(args, int));
-	else if (format == 'u') // il ne prend pas des negatifs
-		print_len += ft_unsigned_putnbr(va_arg(args, unsigned int));
+	else if (format == 'u') 
+		print_len += ft_unsigned_putnbr(va_arg(args, int));
 	else if (format == '%')
 		print_len += ft_putchar('%');
-	else if(format == 'x')
-		print_len += ft_min_hex_putnbr(va_arg(args, unsigned int));
-
+	else if (format == 'x')
+		print_len += ft_min_hex_putnbr(va_arg(args, int));
+	else if (format == 'X')
+		print_len += ft_max_hex_putnbr(va_arg(args, int));
+	else if (format == 'p')
+		print_len += ft_pointer(va_arg(args, unsigned long long int));
 	return (print_len);
 }
 
@@ -51,10 +54,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
- /* we are not using in place of args the va_arg(args)
- *  because we don't know the type of the argumens so 
- *  it will be all mixed */ 
-			print_len += ft_formats(args, str[i + 1]);
+ 			print_len += ft_formats(args, str[i + 1]);
 			i++;
 		}
 		else
@@ -65,13 +65,23 @@ int	ft_printf(const char *str, ...)
 	return (print_len);
 }
 
+/*
 int main()
 {
- 
-	int i = ft_printf("%x\n", 123);
+	char *str;
+
+	str = "rima";
+	int i = ft_printf("%p\n", (void *)&str);
 	printf("the value of i is: %d\n", i);
 
-	int j = printf("%x\n", 123);
+	int j = printf("%p\n", (void *)&str);
+
 	printf("the value of printf is %d\n", j);
 	return 0;
 }
+*/
+
+/* if we weren't using recursif fonctions in putnbr
+and unsigned putnbr we would have to put the same type
+of those fonction in the formats here, but since we are 
+using the recursivity we keep the type int */

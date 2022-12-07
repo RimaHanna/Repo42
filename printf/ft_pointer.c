@@ -49,18 +49,36 @@ static int      ft_size(unsigned int nb)
 }
 
 
-int     ft_min_hex_putnbr(unsigned int n)
+static void ft_min_x_putnbr(unsigned int n)
 {
-        int print_len;
 
-        print_len = ft_size(n);
         if (n >= 16)
         {
-                ft_min_hex_putnbr(n / 16);
+                ft_min_x_putnbr(n / 16);
         }
         ft_x_putchar (n % 16);
-		return (print_len);
 }
+
+int	ft_pointer(unsigned long long int p)
+{
+	int print_len;
+
+	print_len = 0;
+	write(1, "0x", 2);
+	print_len = 2;
+	if (p == 0)
+	{
+		write(1, "0", 1);
+		print_len++;
+	}
+	else
+	{
+		ft_min_x_putnbr(p);
+		print_len += ft_size(p);
+	}
+	return (print_len);
+}
+
 
 /*
 int main()
