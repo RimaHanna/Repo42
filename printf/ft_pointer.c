@@ -34,9 +34,9 @@ static void ft_x_putchar(char c)
 	}
 }
 
-static int      ft_size(unsigned int nb)
+static int      ft_size(unsigned long long int nb)
 {
-        int     size;
+        long long int     size;
 
         size = 0;
         while (nb / 16 != 0)
@@ -49,7 +49,7 @@ static int      ft_size(unsigned int nb)
 }
 
 
-static void ft_min_x_putnbr(unsigned int n)
+static void ft_min_x_putnbr(unsigned long long int n)
 {
 
         if (n >= 16)
@@ -64,6 +64,12 @@ int	ft_pointer(unsigned long long int p)
 	int print_len;
 
 	print_len = 0;
+	if (p == 0)
+	{
+		write(1, "(nil)", 5);
+		print_len = 5;
+		return (print_len);
+	}
 	write(1, "0x", 2);
 	print_len = 2;
 	if (p == 0)

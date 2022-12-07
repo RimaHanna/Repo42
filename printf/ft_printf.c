@@ -68,14 +68,10 @@ int	ft_printf(const char *str, ...)
 /*
 int main()
 {
-	char *str;
-
-	str = "rima";
-	int i = ft_printf("%p\n", (void *)&str);
+	int i = ft_printf(" %p %p ", 0, 0);
 	printf("the value of i is: %d\n", i);
 
-	int j = printf("%p\n", (void *)&str);
-
+	int j = printf(" %p %p ", 0, 0);
 	printf("the value of printf is %d\n", j);
 	return 0;
 }
