@@ -1,9 +1,9 @@
-//#include "get_next_line.h"
+#include <fcntl.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
@@ -15,13 +15,11 @@ size_t ft_strlen(char *str)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	char    *str;
+	size_t  i;
+	size_t  j;
 
 	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
@@ -48,16 +46,5 @@ char	*ft_strchr(char *str, int c)
 			return ((char *)&str[i]);
 		i++;
 	}
-	if (!*str && !c)
-		return ((char *)str);
 	return (NULL);
-}
-
-int main()
-{
-        char *str = "rima";
-        char c = 'i';
-        char *dest = ft_strchr(str, c);
-        printf("%s\n", dest);
-        return 0;
 }

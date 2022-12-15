@@ -4,45 +4,110 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/*
+	In get_line str has the data in the string until after /n
+	in this fonction we are retrieving the data until /n
+*/
+char	*get_line(char *str)
+{	
+	char	*line;
+	int		i;
 
-
-int get_size_line(int fd, char *line)
-{
-	char		buf[BUFFER_SIZE + 1];
-	int			ret;
-	char		*temp;
-	static char *str;
-	
-	ret = BUFFER_SIZE;
-	if (fd < 0 || BUFFER_SIZE <=0)
-		return -1;
-	if (!buf)
-		return (0);
-	while (ret > 0)
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	line = (char *)malloc(sizeof(char) * (i + 2));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != '\n')
 	{
-		ret = read(fd, buf, BUFFER_SIZE);
-		if (ret == -1)
-			return (-1);
-		buf[ret] = '\0';
-		temp = str;
-		str = ft_strjoin(temp, buf);
-		free (temp);
-		if (ft_strchr(str, '\n'))
-			break;
+		line[i] = str[i];
+		i++;
 	}
-	return ret;	
+	if (str[i] == '\n')
+		line[i++] = '\n';
+	line[i] = '\0';
+	return (line);
 }
 
-char *get_next_line(int fd)
+/*
+	in left_str we will have the data remaining in str after the
+	back slach n
+*/
+char	*left_str(char *left_str)
 {
-	char *line;
-	static char *left_line;
+	int		i;
+	int		j;
+	char	*str;
 
-	left_line = get_size_line(fd, line);
-	if (!left_line)
+	i = 0;
+	while (left_str[i] && left_str[i] != '\n')
+		i++;
+	if (!left_str[i])
+	{
+		free(left_str);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (left_str[i])
+		str[j++] = left_str[i++];
+	str[j] = '\0';
+	return (str);
+}
+
+/*
+	read(int fd, char *buf, int buffer_size)
+	read will returns the number of octects
+	read is already savng the data inside of buf
+
+	the fonction of read will read from fd and
+	return the full string str
+	buf is already registring everytime while in the string
+	the string that it is reading
+	I am using a temp string to free the memory everytime and keep
+	the location of the pointer.
+*/
+char	*get_next_line(int fd)
+{
+	int			i;
+	char		*buf[BUFFER_SIZE + 1];
+	char		*temp;
+	char		*line;
+	static char	*str = NULL;
+
+	i = 1;
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return NULL;
-	line = ft_get_line(left_line);
-	left_line = ft_new_left_str(left_str);
+	while (i > 0)
+	{
+		i = read(fd, buf, BUFFER_SIZE);
+//printf("GNL------------------------------\n");
+//printf("....Buffer-size is:\n%d\n", i);
+		if (i == -1)
+			return NULL;
+		buf[i] = '\0';
+//printf("....Buf is:\n%s\n", (char *)buf);
+		temp = str;
+//printf("....Temp is:\n%s\n", temp);
+		str = ft_strjoin(temp, (char *)buf);
+//printf("....Str is:\n%s\n", str);
+		free(temp);
+		if (ft_strchr(str, '\n'))
+			break ;
+	}
+//----------------------
+	line = get_line(str);
+//printf("....line is:\n%s\n", line);
+	temp = str;
+//printf("....Temp2 is:\n%s\n", temp);
+	str = left_str(temp);
+//printf("....Str2 is:\n%s\n", str);
+	free(temp);
 	return (line);
 }
 
@@ -64,19 +129,24 @@ char *get_next_line(int fd)
 */
 int main()
 {
-	int fd;
-	char *line;
+        int fd;
+        char *gnl;
 
-	fd = open("textx/text1.txt", O_RDONLY);
-	printf("The number of the File: %d\n", fd);
-	while (1) 
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		printf("GetNextLine: %s", line);
-		free(line);
-	}
-	close(fd);
-	return 0;
+        fd = open("texts/text1.txt", O_RDONLY);
+/*gnl = get_next_line(fd);
+printf("MAIN-----------------------------------\n");
+printf("GetNextLine:\n%s\n", gnl);
+*/
+        while(1)
+        {
+                gnl = get_next_line(fd);
+printf("Main, GetNextLine:\n%s\n", gnl);
+                if (gnl == NULL)
+                {
+                        break ;
+                        free (gnl);
+                }
+        }
+        close(fd);
+        return 0;
 }
