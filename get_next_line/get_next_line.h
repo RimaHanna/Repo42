@@ -5,12 +5,12 @@
 #include <fcntl.h>
 
 
-/* in case when compiling, we forget to give a size for the buffer,
- * i will have a buffer size already defined, and when compiling
- * it will take the size of the compiler */
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100 
+# endif
 
+size_t	ft_strlen(const char *str);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strchr(const char *str, int c);
 
 #endif
