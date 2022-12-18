@@ -3,6 +3,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+void	ft_bzero(void *s, size_t n)
+{
+        size_t  i;
+        char    *str;
+
+        i = 0;
+        str = (char *)s;
+        while (i < n)
+        {
+                str[i] = '\0';
+                i++;
+        }
+}
+
 size_t	ft_strlen(char *str)
 {
 	int	i;
@@ -46,5 +60,7 @@ char	*ft_strchr(char *str, int c)
 			return ((char *)&str[i]);
 		i++;
 	}
+	if ((char)c == str[i])
+		return ((char *)&str[i]);
 	return (NULL);
 }

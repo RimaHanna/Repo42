@@ -45,10 +45,7 @@ char	*left_str(char *left_str)
 	while (left_str[i] && left_str[i] != '\n')
 		i++;
 	if (!left_str[i])
-	{
-		free(left_str);
-		return (NULL);
-	}
+		return(left_str);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
 	if (!str)
 		return (NULL);
@@ -81,14 +78,15 @@ char	*get_next_line(int fd)
 	static char	*str = NULL;
 
 	i = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (!fd || fd < 0 || BUFFER_SIZE <= 0)
 		return NULL;
 	while (i > 0)
 	{
+		ft_bzero(buf, BUFFER_SIZE);
 		i = read(fd, buf, BUFFER_SIZE);
 //printf("GNL------------------------------\n");
 //printf("....Buffer-size is:\n%d\n", i);
-		if (i == -1)
+		if (i < 1)
 			return NULL;
 		buf[i] = '\0';
 //printf("....Buf is:\n%s\n", (char *)buf);
@@ -127,26 +125,23 @@ char	*get_next_line(int fd)
         but we stop it with the if condition when there is no more
         sentences in the file.
 */
+
+/*
 int main()
 {
         int fd;
         char *gnl;
 
         fd = open("texts/text1.txt", O_RDONLY);
-/*gnl = get_next_line(fd);
-printf("MAIN-----------------------------------\n");
-printf("GetNextLine:\n%s\n", gnl);
-*/
         while(1)
         {
                 gnl = get_next_line(fd);
-printf("Main, GetNextLine:\n%s\n", gnl);
                 if (gnl == NULL)
                 {
                         break ;
-                        free (gnl);
                 }
+printf("Main, GetNextLine:\n%s\n", gnl);
         }
         close(fd);
         return 0;
-}
+}*/
