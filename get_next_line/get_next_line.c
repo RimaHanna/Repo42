@@ -45,7 +45,7 @@ char	*left_str(char *left_str)
 	while (left_str[i] && left_str[i] != '\n')
 		i++;
 	if (!left_str[i])
-		return(left_str);
+		return(NULL);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
 	if (!str)
 		return (NULL);
@@ -72,33 +72,36 @@ char	*left_str(char *left_str)
 char	*get_next_line(int fd)
 {
 	int			i;
-	char		*buf[BUFFER_SIZE + 1];
+	static char		buf[BUFFER_SIZE + 1];
 	char		*temp;
 	char		*line;
-	static char	*str = NULL;
+	static char	*str = 	NULL;
 
 	i = 1;
+//	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1)); 
 	if (!fd || fd < 0 || BUFFER_SIZE <= 0)
 		return NULL;
 	while (i > 0)
 	{
-		ft_bzero(buf, BUFFER_SIZE);
+		ft_bzero(buf, BUFFER_SIZE + 1);
 		i = read(fd, buf, BUFFER_SIZE);
 //printf("GNL------------------------------\n");
 //printf("....Buffer-size is:\n%d\n", i);
-		if (i < 1)
+		if (i == -1)
 			return NULL;
-		buf[i] = '\0';
+//		buf[i] = '\0';
 //printf("....Buf is:\n%s\n", (char *)buf);
 		temp = str;
 //printf("....Temp is:\n%s\n", temp);
-		str = ft_strjoin(temp, (char *)buf);
+		str = ft_strjoin(temp, buf);
 //printf("....Str is:\n%s\n", str);
 		free(temp);
 		if (ft_strchr(str, '\n'))
 			break ;
 	}
 //----------------------
+	if (ft_strlen(str) == 0)
+		return NULL;
 	line = get_line(str);
 //printf("....line is:\n%s\n", line);
 	temp = str;

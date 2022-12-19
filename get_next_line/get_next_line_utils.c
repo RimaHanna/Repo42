@@ -19,10 +19,12 @@ void	ft_bzero(void *s, size_t n)
 
 size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(str && str[i])
+	if (!str)
+		return 0;
+	while(str[i])
 		i++;
 	return (i);
 }
