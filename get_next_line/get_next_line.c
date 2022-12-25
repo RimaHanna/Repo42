@@ -4,10 +4,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/*
-	In get_line str has the data in the string until after /n
-	in this fonction we are retrieving the data until /n
-*/
 char	*get_line(char *str)
 {	
 	char	*line;
@@ -31,10 +27,6 @@ char	*get_line(char *str)
 	return (line);
 }
 
-/*
-	in left_str we will have the data remaining in str after the
-	back slach n
-*/
 char	*left_str(char *left_str)
 {
 	int		i;
@@ -45,7 +37,10 @@ char	*left_str(char *left_str)
 	while (left_str[i] && left_str[i] != '\n')
 		i++;
 	if (!left_str[i])
+	{
+		free (left_str);
 		return(NULL);
+	}
 	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
 	if (!str)
 		return (NULL);
@@ -54,81 +49,85 @@ char	*left_str(char *left_str)
 	while (left_str[i])
 		str[j++] = left_str[i++];
 	str[j] = '\0';
+	free (left_str);
 	return (str);
 }
 
-/*
-	read(int fd, char *buf, int buffer_size)
-	read will returns the number of octects
-	read is already savng the data inside of buf
-
-	the fonction of read will read from fd and
-	return the full string str
-	buf is already registring everytime while in the string
-	the string that it is reading
-	I am using a temp string to free the memory everytime and keep
-	the location of the pointer.
-*/
-char	*get_next_line(int fd)
+char	*read_line(char *str, char *buf, int fd)
 {
-	int			i;
-	static char		buf[BUFFER_SIZE + 1];
-	char		*temp;
-	char		*line;
-	static char	*str = 	NULL;
+	int	i;
 
-	i = 1;
-//	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1)); 
-	if (!fd || fd < 0 || BUFFER_SIZE <= 0)
-		return NULL;
-	while (i > 0)
+	i = 1;	
+	while (i > 0 && !ft_strchr(str, '\n'))
 	{
 		ft_bzero(buf, BUFFER_SIZE + 1);
 		i = read(fd, buf, BUFFER_SIZE);
-//printf("GNL------------------------------\n");
-//printf("....Buffer-size is:\n%d\n", i);
 		if (i == -1)
+		{
+			free(buf);
 			return NULL;
-//		buf[i] = '\0';
-//printf("....Buf is:\n%s\n", (char *)buf);
-		temp = str;
-//printf("....Temp is:\n%s\n", temp);
-		str = ft_strjoin(temp, buf);
-//printf("....Str is:\n%s\n", str);
-		free(temp);
-		if (ft_strchr(str, '\n'))
-			break ;
+		}
+		str = ft_strjoin(str, buf);
 	}
-//----------------------
+	return (str);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*buf;
+	char		*line;
+	static char	*str = 	NULL;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return NULL;
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
+	str = read_line(str, buf, fd);
+	if (!str)
+		return (NULL); 
+	free(buf);
 	if (ft_strlen(str) == 0)
 		return NULL;
 	line = get_line(str);
-//printf("....line is:\n%s\n", line);
-	temp = str;
-//printf("....Temp2 is:\n%s\n", temp);
-	str = left_str(temp);
-//printf("....Str2 is:\n%s\n", str);
-	free(temp);
+	str = left_str(str);
 	return (line);
 }
 
 /*
-        The main fonction purpose is to show the result
-        of the fonction gnl, so i am printing the result
-        of gnl, in order to do so, i will do a loop that will turn
-        as long as there is still data to show.
-        To get data from a file, we will open this file and read from it.
-        The file is represented by a number the we register in int just to see.
-        The gnl is a string. So we catch the fonction in a str, and we free it each time
-        to be able to get the next line.
-        open("const char *pathname", int flags)
-                  const char *pathname: put the file location and name
-        Don't forget that with open there is close;
-        And a boucle while(1) mean it infinite
-        but we stop it with the if condition when there is no more
-        sentences in the file.
-*/
+Avant division de la fonction -----
+char	*get_next_line(int fd)
+{
+	int			i;
+	char		*buf;
+	char		*line;
+	static char	*str = 	NULL;
 
+	i = 1;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return NULL;
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL); 
+	while (i > 0 && !ft_strchr(str, '\n'))
+	{
+		ft_bzero(buf, BUFFER_SIZE + 1);
+		i = read(fd, buf, BUFFER_SIZE);
+		if (i == -1)
+		{
+			free(buf);
+			return NULL;
+		}
+		str = ft_strjoin(str, buf);
+	}
+	free(buf);
+	if (ft_strlen(str) == 0)
+		return NULL;
+	line = get_line(str);
+	str = left_str(str);
+	return (line);
+}
+*/
 /*
 int main()
 {
