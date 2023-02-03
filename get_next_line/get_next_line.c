@@ -128,13 +128,13 @@ char	*get_next_line(int fd)
 	return (line);
 }
 */
-/*
+
 int main()
 {
         int fd;
         char *gnl;
 
-        fd = open("texts/text1.txt", O_RDONLY);
+        fd = open("text.txt", O_RDONLY);
         while(1)
         {
                 gnl = get_next_line(fd);
@@ -146,4 +146,4 @@ printf("Main, GetNextLine:\n%s\n", gnl);
         }
         close(fd);
         return 0;
-}*/
+}
