@@ -1,0 +1,5 @@
+1- j'ai commencé par /utils/t_list.c -> c'est la ou j'ai initialisé des details de la liste chainée comme crée un nouveau element, compter la lliste...
+2- j'ai crée les instructions dans /src/instructions.c, les instructions de push, rotate ...(il y a des fonctions de libft comme ft_putendl_fd pour afficher dans le fichier descripteur les instructions faites)
+3- je vais faire la fonction ft_error dans /utils/utils.c
+4- je vais faire le radix sorting dans /src/radix.c
+5 - je vais faire le simple.c sorting for list <= 5 numbers (i will be using a function called get_distance which is in /utils/utils.c) (and a function called is_sorted to check if is well sorted in /utils/utils.c)

@@ -1,21 +1,19 @@
 NAME = push_swap
 
-SRCS = \
+SRCS = $(wildcard src/*.c utils/*.c libft/*.c) 
 
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -Iincludes
 
-RM = rm -f
+RM = rm -rf
+
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+		@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 		$(RM) $(OBJS)
