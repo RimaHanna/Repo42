@@ -38,3 +38,34 @@ int	get_distance(t_list **stack, int index)
 	return (distance);
 }
 
+// c'est une array de string, on voit la taille de cette array de string, puis on fait free pour chaque element
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+		i++;
+	while (i >= 0)
+	{
+		free(str[i]);
+		i--;
+	}
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*head;
+	t_list	*tmp;
+
+	head = *stack;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
+}
+
+

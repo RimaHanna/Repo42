@@ -30,6 +30,21 @@ void	ft_print_list(t_list *head);
 void	ft_error(char *msg);
 int	is_sorted(t_list **stack);
 int	get_distance(t_list **stack, int index);
+void	ft_free(char **str);
+void	free_stack(t_list **stack);
+
+// check_error.c 
+void	ft_check_args(int argc, char **argv);
+
+// index.c
+void	index_stack(t_list **stack);
+
+// LIB
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+int	ft_atoi(const char *s);
+char	**ft_split(const char *s, char c);
 
 // SRC
 // instruction.c
@@ -59,12 +74,7 @@ void	radix_sort(t_list **stack_a, t_list **stack_b);
 void	sort_5(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 
-// LIBFT
-// ft_putendl_fd.c
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-
+// main.c
+int	main(int argc, char **argv);
 
 #endif
