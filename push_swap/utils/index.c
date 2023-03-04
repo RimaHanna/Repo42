@@ -13,7 +13,7 @@ static t_list	*get_next_min(t_list **stack)
 	{
 		while (head)
 		{
-			if ((head->index = -1) && (!has_min || (head->value < min->value)))
+			if ((head->index == -1) && (!has_min || (head->value < min->value)))
 			{
 				min = head;
 				has_min = 1;
