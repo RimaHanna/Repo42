@@ -82,7 +82,7 @@ int	ft_list_size(t_list *head)
 	tmp = head;
 	while(tmp)
 	{
-		tmp = tmp-> next;
+		tmp = tmp->next;
 		i++;
 	}
 	return (i);
