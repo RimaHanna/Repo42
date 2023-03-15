@@ -1,3 +1,28 @@
+Details and search for infos:
+
+what is: man perror and man stressor
+what is the mathmatique library: -lm and man man 3 math
+
+we will be using ft_printf
+
+Project will include a fractale logistiel (understand fractale)
+- we will be proposing Julia and Mandelbrat (supposibly it should be the parameters)
+- WE have to be able to zoom in and out
+- We will show different styles of JUlia
+- At least one parameter shoudl be given
+- We could have more than multiple parameter to do together
+- If not parameter is given or the parameter is wrong we have to diplay the list of parameters available and quit properly the programme
+
+For the graphical part: 
+- we have to display one image in a window
+- we have to be able to change to another window , minimize ...
+- ESC to close the window and quit the program
+- X to close the window and quit the program
+- we are obligate to use the images of minilibx
+
+
+
+----------------------------------------------
 Fractals are mathematical objects that exhibit self-similarity at different scales, and they can be generated using iterative mathematical formulas. C is a programming language that can be used to create fractals by implementing these formulas as computer algorithms.
 
 One common type of fractal that can be generated using C is the Mandelbrot set, which is a famous fractal that is created by iterating a simple formula. The formula involves repeatedly squaring a complex number and adding a constant value, and checking whether the result stays bounded or tends towards infinity.
