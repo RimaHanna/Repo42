@@ -13,9 +13,9 @@ static int	get_min(t_list **stack, int val)
 	min = head->index;
 	while(head->next)
 	{
+		head = head->next;
 		if ((head->index < min) && head->index != val)
 			min = head->index;
-		head = head->next;
 	}	
 	return (min);
 }

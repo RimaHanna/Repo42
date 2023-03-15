@@ -15,6 +15,7 @@ int	swap(t_list **stack)
 	if (!head & !next)
 		ft_error("Error while swapping");
 	tmp_val = head->value;
+printf("tmp_val> %d\n", tmp_val);
 	tmp_index = head->index;
 	head->value = next->value;
 	head->index = next->index;
@@ -28,6 +29,7 @@ int	sa(t_list **stack_a)
 	if (swap(stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("sa", 1);
+	ft_print_list(*stack_a);
 	return (0);
 }
 
@@ -36,6 +38,7 @@ int	sb(t_list **stack_b)
 	if (swap(stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("sb", 1);
+	ft_print_list(*stack_b);
 	return (0);
 }
 
@@ -46,6 +49,9 @@ int	ss(t_list **stack_a, t_list **stack_b)
 	swap(stack_a);
 	swap(stack_b);
 	ft_putendl_fd("ss", 1);
+	ft_print_list(*stack_a);
+	ft_putendl_fd("a puis b\n", 1);
+	ft_print_list(*stack_b);
 	return (0);
 }
 
@@ -88,6 +94,7 @@ int	pa(t_list **stack_a, t_list **stack_b)
 	if (push(stack_a, stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("pa", 1);
+	ft_print_list(*stack_a);
 	return (0);
 }
 
@@ -96,6 +103,7 @@ int	pb(t_list **stack_a, t_list **stack_b)
 	if (push(stack_b, stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("pb", 1);
+	ft_print_list(*stack_b);
 	return (0);
 }
 // the first element become the last
@@ -123,6 +131,7 @@ int ra(t_list **stack_a)
 	if(rotate(stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("ra", 1);
+	ft_print_list(*stack_a);
 	return (0);
 }
 	
@@ -131,6 +140,7 @@ int rb(t_list **stack_b)
 	if(rotate(stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rb", 1);
+	ft_print_list(*stack_b);
 	return (0);
 }
 
@@ -177,6 +187,7 @@ int rra(t_list **stack_a)
 	if (reverseRotate(stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("rra", 1);
+	ft_print_list(*stack_a);
 	return (0);
 }
 
@@ -185,6 +196,7 @@ int rrb(t_list **stack_b)
 	if (reverseRotate(stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rrb", 1);
+	ft_print_list(*stack_b);
 	return (0);
 }
 

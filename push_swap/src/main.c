@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	init_stack(stack_a, argc, argv);
+ft_print_list(*stack_a);
 	if (is_sorted(stack_a))
 	{
 		free_stack(stack_a);
