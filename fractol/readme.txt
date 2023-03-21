@@ -48,3 +48,5 @@ Un nombre complex possède deux parties: une partie réelle et une partie imagin
 reference: https://zestedesavoir.com/tutoriels/329/dessiner-la-fractale-de-mandelbrot/
 
 https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx
+
+https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
