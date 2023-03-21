@@ -39,21 +39,28 @@ void radix_sort(t_list **stack_a, t_list **stack_b)
 	i = 0;
 	lst_size = ft_list_size(head_a);
 	max_bits = get_max_bits(stack_a);
-// if the last bits is equal to 1 we keep in stack_a else we push to b, when we check all the numbers followinf the size of the list and we end pushing to b/ we repush to a everything
+// if the last bits is equal to 1 we keep in stack_a else we push to b, when we check all the numbers following the size of the list and we end pushing to b/ we repush to a everything
+//printf("max_bits> %d\n", max_bits);
+//printf("lst_size> %d\n", lst_size);
 	while(i < max_bits)
 	{
 		j = 0;
 		while(j < lst_size)
 		{
 			head_a = *stack_a;
+//printf("head_a> %d\n", head_a->value);
 			if (((head_a->index >> i) & 1) == 1)
 				ra(stack_a);
 			else
 				pb(stack_a, stack_b);
 			j++;
 		}
+//	printf("stack_b\n");
+//	ft_print_list(*stack_b);
 		while(ft_list_size(*stack_b) != 0)
 			pa(stack_a, stack_b);
 		i++;
+//	printf("stack_a\n");
+//	ft_print_list(*stack_a);
 	}
 }

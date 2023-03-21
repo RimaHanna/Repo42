@@ -1,11 +1,11 @@
 Details and search for infos:
 
-what is: man perror and man stressor
+what is: man perror and man strerror
 what is the mathmatique library: -lm and man man 3 math
 
 we will be using ft_printf
 
-Project will include a fractale logistiel (understand fractale)
+Project will include a fractale logistic (understand fractale)
 - we will be proposing Julia and Mandelbrat (supposibly it should be the parameters)
 - WE have to be able to zoom in and out
 - We will show different styles of JUlia
@@ -41,4 +41,10 @@ Les nombres complexes peuvent être représentés graphiquement sur un plan comp
 
 En résumé, les nombres mathématiques complexes sont une extension du système de nombres réels qui permet de représenter des quantités avec des parties réelles et imaginaires. Ils ont de nombreuses applications en mathématiques et en physique, et peuvent être représentés graphiquement sur un plan complexe.
 
+
+Un nombre complex possède deux parties: une partie réelle et une partie imaginaire
 -------------------------------------------
+
+reference: https://zestedesavoir.com/tutoriels/329/dessiner-la-fractale-de-mandelbrot/
+
+https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx

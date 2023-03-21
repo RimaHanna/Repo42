@@ -31,6 +31,30 @@ static void	sort_3(t_list **stack_a)
 	next_min = get_min(stack_a, min);
 	if (is_sorted(stack_a))
 		return ;
+	if ((head->index == min) && (head->next->index != next_min))
+	{
+		ra(stack_a);
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (head->index == next_min)
+		(head->next->index == min)? sa(stack_a):rra(stack_a);
+	else
+		(head->next->index == min)? ra(stack_a):(sa(stack_a),
+			rra(stack_a));
+}
+/*
+static void	sort_3(t_list **stack_a)
+{
+	t_list *head;
+	int min;
+	int	next_min;
+
+	head = *stack_a;
+	min = get_min(stack_a, -1);
+	next_min = get_min(stack_a, min);
+	if (is_sorted(stack_a))
+		return ;
 	// first case > 0 / 2 / 1
 	if ((head->index == min) && (head->next->index != next_min))
 	{
@@ -61,7 +85,7 @@ static void	sort_3(t_list **stack_a)
 		}
 	}
 }
-
+*/
 /*The sort_4 function sorts a stack of four elements. It first finds the minimum value in the stack using the get_min function and calculates its distance from the top of the stack. Then it performs the necessary rotations to move the minimum value to the top of the stack. After that, it pushes the minimum value to the second stack and sorts the remaining three elements using the sort_3 function. Finally, it pushes the minimum value back to the first stack.*/
 static void	sort_4(t_list **stack_a, t_list **stack_b)
 {
