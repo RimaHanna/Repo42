@@ -43,7 +43,8 @@ void	index_stack(t_list **stack);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int	ft_atoi(const char *s);
+int		ft_atoi(const char *s);
+long int	ft_long_atoi(const char *s);
 char	**ft_split(const char *s, char c);
 
 // SRC

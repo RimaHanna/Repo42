@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 // cet fonction c'est pour etre sur que il n y a pas un nombre qui se repete 2 fois.
 static int	is_double(int tmp, char **argv, int i)
@@ -47,7 +48,7 @@ void	ft_check_args(int argc, char **argv)
 	}
 	while (args[i])
 	{
-		tmp = ft_atoi(args[i]);
+		tmp = ft_long_atoi(args[i]);
 		if (!is_num(args[i]))
 			ft_error("Error");
 		if (is_double(tmp, args, i))

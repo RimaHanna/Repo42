@@ -35,8 +35,9 @@ void mandelbrot(void)
 				i++;
 			}
 			if (i == iteration_max)
-				//draw image
-				break;
+				//draw pixel at (x, y) in black
+			else 
+				// draw pixel with another color
 			y++;
 		}
 		x++;
