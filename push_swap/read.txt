@@ -3,3 +3,9 @@
 3- je vais faire la fonction ft_error dans /utils/utils.c
 4- je vais faire le radix sorting dans /src/radix.c
 5 - je vais faire le simple.c sorting for list <= 5 numbers (i will be using a function called get_distance which is in /utils/utils.c) (and a function called is_sorted to check if is well sorted in /utils/utils.c)
+
+https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+
+https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+
+https://www.geeksforgeeks.org/left-shift-right-shift-operators-c-cpp/
