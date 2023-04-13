@@ -14,6 +14,7 @@ SRCS = lib/ft_atoi.c \
 		src/main.c \
 		src/radix.c \
 		src/simple.c \
+		garbage_collector.c \
 
 OBJS = $(SRCS:.c=.o)
 

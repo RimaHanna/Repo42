@@ -7,6 +7,9 @@
 # include <limits.h>
 # include <unistd.h>
 
+// include a garbage collector for malloc
+void	*ft_malloc(size_t size);
+
 // creating the structure for the stack
 
 typedef struct s_list

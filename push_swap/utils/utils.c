@@ -51,6 +51,7 @@ void	ft_free(char **str)
 		free(str[i]);
 		i--;
 	}
+	free(str);
 }
 
 void	free_stack(t_list **stack)

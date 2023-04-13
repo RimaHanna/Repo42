@@ -1,13 +1,14 @@
 NAME = fractol
 
-SRCS = $(wildcard src/*.c)
-
-OBJS = $(SRCS:.c=.o)
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3 -Iincludes
 MLXFLAGS = -L ./minilibx-linux -lmlx -Ilmlx -lXext -lX11
 LIBFT = -L ./libft/libft.a
+
+SRCS = mandelbrot.c \
+		parameter.c \
+
+OBJS = $(SRCS:.c=.o)
 
 RM = rm -rf
 
