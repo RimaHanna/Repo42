@@ -1,15 +1,15 @@
 #include "fractol.h"
 
-void	mandelbrot_parameter(t_fractal *fractal, char *name)
+void	mandelbrot_parameter(t_fractal *f, char *name)
 {
-	fractal->zoom = 1;
-	fractal->width = 1280;
-	fractal->height = 720;
-	fractal->iteration = 150;
-	fractal->color = 0xccf1ff;
-	fractal->xarrow = 0;
-	fractal->yarrow = ;
-	fractal->c_r = ;
-	fractal->c_i = ;
-	fractal->name = name;
+	f->zoom = 1;
+	f->width = 1280;
+	f->height = 720;
+	f->iters = 150;
+	f->color = 0xccf1ff;
+	f->xarrow = 0;
+	f->yarrow = 0;
+	f->x = 0;
+	f->y = 0;
+	f->name = name;
 }
