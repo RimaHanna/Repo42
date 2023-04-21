@@ -33,7 +33,7 @@ int main()
 	f.addr = mlx_get_data_addr(f.img, &f.bits_per_pixel,
 							 &f.line_length, &f.endian);
 	mandelbrotset(&f);
-	my_mlx_pixel_put(&f, 5, 5, 0x00FF0000);
+	my_mlx_pixel_put(&f, 100, 100, 0x0000FFFF);
 	mlx_put_image_to_window(f.mlx, f.win, f.img, 0, 0);
 	mlx_key_hook(f.win, key_hook, &f);
 //	mlx_mouse_hook(f.win, mouse_hook, &f);

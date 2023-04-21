@@ -17,6 +17,8 @@ void	mandelbrotset(t_fractal	*m)
 		while (y++ < m->height)
 		{
 			i = 0;
+			z_r = 0;
+			z_i = 0;
 			m->xi = (x + m->xarrow)  / m->zoom * (0.47 + 2) / (m->width - 1) -2;
 			m->yi = (y + m->yarrow) / m->zoom * (1.12 + 1.12) / (m->width - 1) - 1.12;
 			while (i++ < m->iters)
