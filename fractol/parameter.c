@@ -11,7 +11,7 @@ void	mandelbrot_parameter(t_fractal *f, char *name)
 	f->yarrow = 100;
 	f->xarrowM = 0;
 	f->yarrowM = 0;
-	f->x = 0;
-	f->y = 0;
+//	f->x = 0;
+//	f->y = 0;
 	f->name = name;
 }

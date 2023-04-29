@@ -41,6 +41,8 @@ void	mandelbrotset(t_fractal	*f)
 		}
 		x++;
 	}
+	my_mlx_pixel_put(f, 300, 300, f->color);
+	my_mlx_pixel_put(f, 200, 300, f->color);
 }
 
 // mandelbrot complete function

@@ -32,7 +32,10 @@ int	end_project(t_fractal *f)
 
 void	print_string(void)
 {
-	printf("please type correctly\n");
+	write(1, "WRONG PARAMETER INPUT\n", 22);
+	write(1, "PLEASE TYPE:\n", 13);
+	write(1, "\t\t\t'mandelbrot'\n\t\tOR\n", 21);
+	write(1, "\t\t\t'julia'\n\t\tOR\n", 16);
 	exit (1);
 }
 
@@ -42,7 +45,8 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		if (!(strncmp(argv[1], "mandelbrot", 10)))
+
+		if (!(ft_strncmp(argv[1], "mandelbrot", 10)) && (ft_strlen(argv[1]) == 10))
 			mandelbrot_parameter(&f, "mandelbrot");
 		else
 			print_string();
