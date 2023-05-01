@@ -13,6 +13,7 @@
 # define UP 65362
 # define RIGHT 65363
 # define DOWN 65364
+# define JULIA_J 106
 # define COLOR_PLUS_P 112
 # define COLOR_MINUS_M 109
 # define ZOOM_IN_Z 122
@@ -23,9 +24,11 @@
 # define RIGHT_MOUSE_BUTTON 3
 # define ZOOM_FACTOR 1.3
 
-
-
-
+typedef struct s_imag
+{
+	double	x;
+	double	y;
+}			t_comp;
 
 typedef struct	s_fractal
 {
@@ -48,14 +51,16 @@ typedef struct	s_fractal
 	double	yarrowM;
 	double	xi;
 	double	yi;
-	double	pos_x;
-	double	pos_y;
+	t_comp	c;
 	double	radius;
 }			t_fractal;
 
 void	mandelbrot_parameter(t_fractal *f, char *name);
+void	julia_parameter(t_fractal *f, char *name);
+
 void	refresh_image(t_fractal *f);
 void	mandelbrotset(t_fractal *m);
+void	juliaset(t_fractal *f);
 
 int	my_mlx_pixel_put(t_fractal *f, int x, int y, int color);
 int	end_project(t_fractal *f);

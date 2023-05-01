@@ -3,21 +3,21 @@
 void	minimandel (int x, int y, t_fractal *f)
 {
 	int		i;
-	double	z_r;
-	double	z_i;
+	double	zr;
+	double	zi;
 	double	tmp;
 
 	i = 0;
 	f->xi = (x + f->xarrow) / f->zoom * (0.48 + 2) / (f->width) - 2;
 	f->yi = (y + f->yarrow) / f->zoom * (1.14 + 1.14) / (f->width) - 1.14;
-	z_r = f->xi;
-	z_i = f->yi;
+	zr = f->xi;
+	zi = f->yi;
 	while (++i < f->iters)
 	{
-		tmp = z_r;
-		z_r = z_r*z_r - z_i*z_i + f->xi;
-		z_i = 2*z_i*tmp + f->yi;
-		if (((z_r * z_r) + (z_i * z_i)) > 4) 
+		tmp = zr;
+		zr = zr*zr - zi*zi + f->xi;
+		zi = 2*zi*tmp + f->yi;
+		if (((zr * zr) + (zi * zi)) > 4) 
 		{
 			my_mlx_pixel_put(f, (int) x, (int) y, f->color * (i));
 			break ;
@@ -41,8 +41,6 @@ void	mandelbrotset(t_fractal	*f)
 		}
 		x++;
 	}
-	my_mlx_pixel_put(f, 300, 300, f->color);
-	my_mlx_pixel_put(f, 200, 300, f->color);
 }
 
 // mandelbrot complete function
@@ -52,8 +50,8 @@ void	mandelbrotset(t_fractal	*f)
 	int	x;
 	int	y;
 	int	i;
-	double	z_r;
-	double	z_i;
+	double	zr;
+	double	zi;
 	double	tmp;
 
 	x = 0;
@@ -65,14 +63,14 @@ void	mandelbrotset(t_fractal	*f)
 			i = 0;
 			f->xi = (x + f->xarrow) / f->zoom * (0.48 + 2) / (f->width) - 2;
 			f->yi = (y + f->yarrow) / f->zoom * (1.14 + 1.14) / (f->width) - 1.14;
-			z_r = f->xi;
-			z_i = f->yi;
+			zr = f->xi;
+			zi = f->yi;
 			while (++i < f->iters)
 			{
-				tmp = z_r;
-				z_r = z_r*z_r - z_i*z_i + f->xi;
-				z_i = 2*z_i*tmp + f->yi;
-				if (((z_r * z_r) + (z_i * z_i)) > 4) 
+				tmp = zr;
+				zr = zr*zr - zi*zi + f->xi;
+				zi = 2*zi*tmp + f->yi;
+				if (((zr * zr) + (zi * zi)) > 4) 
 				{
 					my_mlx_pixel_put(f, (int) x, (int) y, f->color * (i));
 					break ;

@@ -7,6 +7,7 @@ MLXFLAGS = -L ./minilibx-linux -lmlx -Ilmlx -lXext -lX11
 SRCS = fractol.c \
 		parameter.c \
 		mandelbrot.c \
+		julia.c \
 		hooks.c \
 		ft_strncmp.c \
 		ft_strlen.c \
@@ -21,12 +22,10 @@ $(NAME) : $(OBJS)
 		${CC} ${CFLAGS} -lm ${OBJS} $(MLXFLAGS) -o ${NAME}
 
 clean :
-		$(MAKE) clean
 		$(RM) $(OBJS)
 		echo "OBJS deleted"
 
 fclean : clean
-		$(MAKE) fclean
 		$(RM) $(NAME)
 		echo "$(NAME) deleted"
 
