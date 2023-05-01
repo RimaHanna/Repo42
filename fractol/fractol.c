@@ -9,7 +9,9 @@ void	refresh_image(t_fractal *f)
 	if (!(ft_strncmp(f->name, "mandelbrot", 10)))
 		mandelbrotset(f);
 	else if (!(ft_strncmp(f->name, "julia", 5)))
-			juliaset(f);
+		juliaset(f);
+	else if (!(ft_strncmp(f->name, "burningship", 11)))
+		burningshipset(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 }
 
@@ -30,6 +32,9 @@ void	print_string_exit(void)
 	write(1, "PLEASE TYPE:\n", 13);
 	write(1, "\t\t\t'mandelbrot'\n\t\tOR\n", 21);
 	write(1, "\t\t\t'julia'\n\t\tOR\n", 16);
+	write(1, "\t\t\t'burningship'\n", 17);
+	write(1, "\t--------------------------------------\n", 40);
+
 	exit (1);
 }
 
@@ -56,6 +61,8 @@ int main(int argc, char **argv)
 			mandelbrot_parameter(&f, "mandelbrot");
 		else if (!(ft_strncmp(argv[1], "julia", 5)) && (ft_strlen(argv[1]) == 5))
 			julia_parameter(&f, "julia");
+		else if (!(ft_strncmp(argv[1], "burningship", 11)) && (ft_strlen(argv[1]) == 11))
+			burningship_parameter(&f, "burningship");
 		else
 			print_string_exit();
 		init_fractal(f);

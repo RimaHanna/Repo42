@@ -57,10 +57,13 @@ typedef struct	s_fractal
 
 void	mandelbrot_parameter(t_fractal *f, char *name);
 void	julia_parameter(t_fractal *f, char *name);
+void	burningship_parameter(t_fractal *f, char *name);
+
 
 void	refresh_image(t_fractal *f);
 void	mandelbrotset(t_fractal *m);
 void	juliaset(t_fractal *f);
+void	burningshipset(t_fractal *f);
 
 int	my_mlx_pixel_put(t_fractal *f, int x, int y, int color);
 int	end_project(t_fractal *f);

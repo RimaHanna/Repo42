@@ -8,6 +8,7 @@ SRCS = fractol.c \
 		parameter.c \
 		mandelbrot.c \
 		julia.c \
+		burningship.c \
 		hooks.c \
 		ft_strncmp.c \
 		ft_strlen.c \

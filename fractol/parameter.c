@@ -42,3 +42,17 @@ void	julia_parameter(t_fractal *f, char *name)
 	f->color = 0xccf1ff;
 	f->name = name;
 }
+
+void	burningship_parameter(t_fractal *f, char *name)
+{
+	f->zoom = 0.37;
+	f->width = 800;
+	f->height = 600;
+	f->iters = 150;
+	f->color = 0xccf1ff;
+	f->xarrow = -103;
+	f->yarrow = -150;
+	f->xarrowM = 0;
+	f->yarrowM = 0;
+	f->name = name;
+}

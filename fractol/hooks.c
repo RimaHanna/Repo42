@@ -68,6 +68,16 @@ void adjust_mandelbrot(t_fractal *f)
 	}
 }
 
+void adjust_burningship(t_fractal *f)
+{
+    if (!(ft_strncmp(f->name, "burningship", 11)))
+	{
+		f->xarrow = (((f->width + 721 + f->xarrowM * 2) * f->zoom) - f->width) / 2;
+		f->yarrow = (((f->height - 300 + f->yarrowM * 2) * f->zoom) - f->height) / 2;
+	}
+	printf("f->xarrow: %f, f->yarrow: %f\n", f->xarrow, f->yarrow);
+}
+
 int	mouse_hook(int keycode, int x, int y, t_fractal *f)
 {
 	if (x == y)
@@ -91,6 +101,7 @@ int	mouse_hook(int keycode, int x, int y, t_fractal *f)
 	//	f->zoom = 2.5;
 	}
 	adjust_mandelbrot(f);
+	adjust_burningship(f);
     refresh_image(f);
     return (0);
 }
