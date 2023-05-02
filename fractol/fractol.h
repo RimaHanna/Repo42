@@ -59,7 +59,6 @@ void	mandelbrot_parameter(t_fractal *f, char *name);
 void	julia_parameter(t_fractal *f, char *name);
 void	burningship_parameter(t_fractal *f, char *name);
 
-
 void	refresh_image(t_fractal *f);
 void	mandelbrotset(t_fractal *m);
 void	juliaset(t_fractal *f);

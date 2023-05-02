@@ -50,7 +50,7 @@ void	burningship_parameter(t_fractal *f, char *name)
 	f->height = 600;
 	f->iters = 150;
 	f->color = 0xccf1ff;
-	f->xarrow = -103;
+	f->xarrow = -100;
 	f->yarrow = -150;
 	f->xarrowM = 0;
 	f->yarrowM = 0;

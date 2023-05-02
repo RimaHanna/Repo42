@@ -1,35 +1,61 @@
 NAME = fractol
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
-MLXFLAGS = -L ./minilibx-linux -lmlx -Ilmlx -lXext -lX11
-
 SRCS = fractol.c \
 		parameter.c \
 		mandelbrot.c \
 		julia.c \
 		burningship.c \
-		hooks.c \
+		keyhooks.c \
+		mousehooks.c \
 		ft_strncmp.c \
 		ft_strlen.c \
 
-OBJS = $(SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
+
+MINI = ./minilibx-linux
+
+CFLAGS = -Wall -Wextra -Werror
+
+CC = gcc
+
+MINI_LINKS = -ldl -lmlx -Lmlx -lXext -lX11 -lz
 
 RM = rm -rf
+CRC = make -s -C
+DSC = make clean -s -C 
 
-all: $(NAME)
+.SILENT : lib ${NAME}
 
-$(NAME) : $(OBJS)
-		${CC} ${CFLAGS} -lm ${OBJS} $(MLXFLAGS) -o ${NAME}
+all : ${NAME}
+
+.c.o:
+	@${CC} ${CFLAGS} -Imlx -c $< -o ${<:.c=.o}
+
+${NAME} : ${OBJS}
+	@${CRC} ${MINI}
+	@printf "${C_PURPLE}"
+	@${CC} ${CFLAGS} -O0 -g ${OBJS} ${INCLUDES} -o ${NAME} $(MINI_LINKS)
 
 clean :
-		$(RM) $(OBJS)
-		echo "OBJS deleted"
+	@printf "${C_BLUE}"
+	@${RM} ${OBJS}
 
 fclean : clean
-		$(RM) $(NAME)
-		echo "$(NAME) deleted"
+	${RM} ${NAME}
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re
+
+##################COLORS###########################
+C_FLASH = \033[5;31m
+C_RED = \033[0;31m
+C_BLUE = \033[0;34m
+C_OCHRA = \033[0;33m
+C_TUR = \033[1;36m
+C_PURPLE =\033[7;35m
+C_CHARCOAL = \033[9;30m
+C_RANDOM = \033[1;30m
+C_YUHU = \033[1;37m
+C_END = \033[0m
+##################################################

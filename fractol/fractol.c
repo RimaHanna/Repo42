@@ -15,7 +15,6 @@ void	refresh_image(t_fractal *f)
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 }
 
-
 int	end_project(t_fractal *f)
 {
 	mlx_destroy_image(f->mlx, f->img);
@@ -34,7 +33,6 @@ void	print_string_exit(void)
 	write(1, "\t\t\t'julia'\n\t\tOR\n", 16);
 	write(1, "\t\t\t'burningship'\n", 17);
 	write(1, "\t--------------------------------------\n", 40);
-
 	exit (1);
 }
 
