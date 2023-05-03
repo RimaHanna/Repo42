@@ -12,8 +12,9 @@ void adjust_mandelbrot(t_fractal *f)
 {
     if (!(ft_strncmp(f->name, "mandelbrot", 10)))
 	{
-		f->xarrow = (((f->width + f->xarrowM * 2) * f->zoom) - f->width) / 2;
-		f->yarrow = (((f->height + 200 + f->yarrowM * 2) * f->zoom) - f->height) / 2;
+		f->xarrow = (((f->width + f->xmove * 2) * f->zoom) - f->width) / 2;
+		f->yarrow = (((f->height + 200 + f->ymove * 2) * f->zoom)
+			 - f->height) / 2;
 	}
 }
 
@@ -21,8 +22,8 @@ void adjust_burningship(t_fractal *f)
 {
     if (!(ft_strncmp(f->name, "burningship", 11)))
 	{
-		f->xarrow = (((f->width + f->xarrowM * 2) * f->zoom) - f->width) / 2 + (((400 - f->xarrowM)) * f->zoom);
-		f->yarrow = (((f->height + f->yarrowM * 2) * f->zoom) - f->height) / 2 + ((100 - f->yarrowM) * f->zoom);
+		f->xarrow = (((f->width + f->xmove) * f->zoom) - f->width) / 2 + (400  * f->zoom);
+		f->yarrow = (((f->height + f->ymove) * f->zoom) - f->height) / 2 + (100 * f->zoom);
 	}
 }
 

@@ -19,8 +19,8 @@ void	mandelbrot_parameter(t_fractal *f, char *name)
 	f->color = 0xccf1ff;
 	f->xarrow = 0;
 	f->yarrow = 100;
-	f->xarrowM = 0;
-	f->yarrowM = 0;
+	f->xmove = 0;
+	f->ymove = 0;
 	f->name = name;
 }
 
@@ -35,8 +35,8 @@ void	julia_parameter(t_fractal *f, char *name)
 	f->zoom = 3;
 	f->xarrow = 0;
 	f->yarrow = 0;
-	f->xarrowM = 0;
-	f->yarrowM = 0;
+	f->xmove = 0;
+	f->ymove = 0;
 	f->xi = 0;
 	f->yi = 0;
 	f->color = 13431795;
@@ -52,7 +52,7 @@ void	burningship_parameter(t_fractal *f, char *name)
 	f->color = 16779015;
 	f->xarrow = -100;
 	f->yarrow = -150;
-	f->xarrowM = 0;
-	f->yarrowM = 0;
+	f->xmove = 0;
+	f->ymove = 0;
 	f->name = name;
 }

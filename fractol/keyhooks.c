@@ -4,22 +4,22 @@ void	key_hook_key(int keycode,t_fractal *f)
 {
 	if (keycode == LEFT)
 	{
-		f->xarrowM -= 50 / f->zoom;
+		f->xmove -= 50 / f->zoom;
 		f->xarrow -= 50 / f->zoom;
 	}
 	else if (keycode == RIGHT)
 	{
-		f->xarrowM += 50 / f->zoom;
+		f->xmove += 50 / f->zoom;
 		f->xarrow += 50 / f->zoom;
 	}
 	else if (keycode == UP)
 	{
-		f->yarrowM -= 50 / f->zoom;
+		f->ymove -= 50 / f->zoom;
 		f->yarrow -= 50 / f->zoom;
 	}
 	else if (keycode == DOWN)
 	{
-		f->yarrowM += 50 / f->zoom;
+		f->ymove += 50 / f->zoom;
 		f->yarrow += 50 / f->zoom;
 	}
 }

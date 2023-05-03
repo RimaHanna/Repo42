@@ -54,7 +54,6 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-
 		if (!(ft_strncmp(argv[1], "mandelbrot", 10)) && (ft_strlen(argv[1]) == 10))
 			mandelbrot_parameter(&f, "mandelbrot");
 		else if (!(ft_strncmp(argv[1], "julia", 5)) && (ft_strlen(argv[1]) == 5))

@@ -47,8 +47,8 @@ typedef struct	s_fractal
 	double	zoom;
 	double	xarrow;
 	double	yarrow;
-	double	xarrowM;
-	double	yarrowM;
+	double	xmove;
+	double	ymove;
 	double	xi;
 	double	yi;
 	t_comp	c;
