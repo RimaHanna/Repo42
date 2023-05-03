@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-#include <stddef.h>
 #include "libft.h"
-#include <stdio.h>
+#include "strings.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -41,4 +39,9 @@ int main()
 	printf("%s\n", str1);
 	return 0;
 }
+*/
+
+/**
+ * ft_bzero is a function that sets a block of memory to zero. 
+ * It is commonly used to clear out memory before initializing it with new data.
 */

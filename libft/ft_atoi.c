@@ -10,14 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*We use long because it is guaranteed to
-be able to store, at the very least, values that lie within the range of
- -2147483647 and 2147483647.*/
-
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-#include <stddef.h>
 
 int	ft_isspace(char c)
 {
@@ -58,4 +51,19 @@ int main(int argc, char **argv)
 	printf("mon atoi --> %i\n", ft_atoi(argv[1]));
 	return 0;
 }
+*/
+
+/**
+ * atoi is a function in the standard library of the C programming language
+ * that allows you to convert a string of characters representing a number 
+ * into an integer value of type int.
+ * 
+ * atoi does not perform any error checking, so if the input string is not a 
+ * valid representation of an integer, the result of the function call will be undefined.
+ * 
+ * two plus or two minus aren't considered part of the number. 
+ * 
+ * We use long int because it is guaranteed to 
+ * be able to store, at the very least, values that lie within the range of
+ * -2147483647 and 2147483647.
 */

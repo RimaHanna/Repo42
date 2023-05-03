@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
-#include <limits.h>
 
 int	ft_nb_of_digit(int n)
 {
@@ -86,4 +83,7 @@ int main()
 	printf("string: %s\n", ret);
 	return 0;
 }
+*/
+/**
+ * itoa converts an integer value to a string.
 */

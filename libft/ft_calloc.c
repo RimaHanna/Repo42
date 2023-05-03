@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -47,4 +43,14 @@ int		main()
 	printf("str1: %s\n", str1);
 	return (0);
 }
+*/
+
+/**
+ * ft_calloc is a function that allocates a block of memory
+ * and initializes all bytes of the block to zero.
+ * It is similar to the malloc function, but it also 
+ * clears the memory block to zero.
+ * 
+ * nmemb: number of elements to allocate memory for
+ * size: if the size(in bytes) of each element
 */
