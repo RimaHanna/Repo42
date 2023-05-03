@@ -10,11 +10,6 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 
 OBJS = $(SRCS:.c=.o)
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_listsize.c ft_lstlast.c ft_lstadd_back.c\
-		ft_lstdelone.c t_lstclear.c ft_lstiter.c ft_lstmap.c\
-
-OBJSB = $(BONUS:.c=.o)
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 

@@ -46,8 +46,8 @@ void	juliaset(t_fractal *f)
 		f->yi = 0;
 		while (++f->yi <= f->height)
 		{
-			z0 = mappoint(f, f->xi - (f->width / 2) - f->xarrow,
-					 f->yi - (f->height / 2) - f->yarrow);
+			z0 = mappoint(f, f->xi - (f->width / 2) + f->xarrow,
+					 f->yi - (f->height / 2) + f->yarrow);
 			i = 0;
 			while (i++ <= f->iters)
 			{
