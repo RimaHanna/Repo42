@@ -48,14 +48,4 @@ void	burningshipset(t_fractal *f)
 		}
 		x++;
 	}
-	my_mlx_pixel_put(f,400,300, 0xff0000);
-	my_mlx_pixel_put(f,200,300, 0xff0000);
-	my_mlx_pixel_put(f,600,300, 0xff0000);
-	my_mlx_pixel_put(f,400,150, 0xff0000);
-	my_mlx_pixel_put(f,400,500, 0xff0000);
-
-
-
-
-
 }

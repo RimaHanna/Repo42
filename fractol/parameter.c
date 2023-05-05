@@ -56,3 +56,22 @@ void	burningship_parameter(t_fractal *f, char *name)
 	f->ymove = 0;
 	f->name = name;
 }
+
+void	julia_parameter_plus(t_fractal *f, char *name, double c_x, double c_y)
+{
+	f->width = 800;
+	f->height = 600;
+	f->c.x = c_x;
+	f->c.y = c_y;
+	f->radius = 3;
+	f->iters = 120;
+	f->zoom = 3;
+	f->xarrow = 0;
+	f->yarrow = 0;
+	f->xmove = 0;
+	f->ymove = 0;
+	f->xi = 0;
+	f->yi = 0;
+	f->color = 13431795;
+	f->name = name;
+}

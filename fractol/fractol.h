@@ -6,7 +6,8 @@
 # include <stdlib.h>
 # include <unistd.h> 
 # include <X11/keysym.h>
-# include "minilibx-linux/mlx.h"
+# include <mlx.h>
+# include <X11/X.h>
 
 # define ESC 65307
 # define LEFT 65361
@@ -57,6 +58,7 @@ typedef struct	s_fractal
 
 void	mandelbrot_parameter(t_fractal *f, char *name);
 void	julia_parameter(t_fractal *f, char *name);
+void	julia_parameter_plus(t_fractal *f, char *name, double c_x, double c_y);
 void	burningship_parameter(t_fractal *f, char *name);
 
 void	refresh_image(t_fractal *f);
@@ -70,5 +72,6 @@ int	key_hook(int keycode, t_fractal *f);
 int	mouse_hook(int keycode, int x, int y, t_fractal *f);
 int	ft_strncmp(char *s1, char *s2, int n);
 int	ft_strlen(char *s);
+int is_number(char *s);
 
 #endif

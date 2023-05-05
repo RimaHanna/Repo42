@@ -7,8 +7,7 @@ SRCS = fractol.c \
 		burningship.c \
 		keyhooks.c \
 		mousehooks.c \
-		ft_strncmp.c \
-		ft_strlen.c \
+		utils.c \
 
 OBJS = ${SRCS:.c=.o}
 

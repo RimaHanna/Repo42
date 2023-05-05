@@ -6,11 +6,11 @@ void	refresh_image(t_fractal *f)
 	f->img = mlx_new_image(f->mlx, f->width, f->height);
 	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel,
 							 &f->line_length, &f->endian);
-	if (!(ft_strncmp(f->name, "mandelbrot", 10)))
+	if (!(ft_strncmp(f->name, "mandelbrot", 1)))
 		mandelbrotset(f);
-	else if (!(ft_strncmp(f->name, "julia", 5)))
+	else if (!(ft_strncmp(f->name, "julia", 1)))
 		juliaset(f);
-	else if (!(ft_strncmp(f->name, "burningship", 11)))
+	else if (!(ft_strncmp(f->name, "burningship", 1)))
 		burningshipset(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 }
@@ -36,8 +36,46 @@ void	print_string_exit(void)
 	exit (1);
 }
 
-void	init_fractal(t_fractal f)
+int main(int ac, char **av)
 {
+	t_fractal f;
+
+	if ((ac == 2) && (!(ft_strncmp(av[1], "m", 1)) && (ft_strlen(av[1]) == 1)))
+		mandelbrot_parameter(&f, "mandelbrot");
+	else if ((ac == 2) && (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1)))
+		julia_parameter(&f, "julia");
+	else if ((ac == 2) && (!(ft_strncmp(av[1], "b", 1)) && (ft_strlen(av[1]) == 1)))
+		burningship_parameter(&f, "burningship");
+	else if ((ac == 4) && (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1))
+			&& (is_number(av[2])) && (is_number(av[3])))
+		julia_parameter_plus(&f, "julia", atof(av[2]), atof(av[3]));
+	else
+		print_string_exit();
+	f.mlx = mlx_init();
+	f.win = mlx_new_window(f.mlx, f.width, f.height, "Rhanna");
+	f.img = mlx_new_image(f.mlx, f.width, f.height);
+	refresh_image(&f);
+	mlx_key_hook(f.win, key_hook, &f);
+	mlx_mouse_hook(f.win, mouse_hook, &f);
+	mlx_hook(f.win, 17, 0, end_project, &f);
+	mlx_loop(f.mlx);
+	return (0);
+}
+/*
+int main(int ac, char **av)
+{
+	t_fractal f;
+
+	if (ac == 2)
+	{
+		if (!(ft_strncmp(av[1], "m", 1)) && (ft_strlen(av[1]) == 1))
+			mandelbrot_parameter(&f, "mandelbrot");
+		else if (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1))
+			julia_parameter(&f, "julia");
+		else if (!(ft_strncmp(av[1], "b", 1)) && (ft_strlen(av[1]) == 1))
+			burningship_parameter(&f, "burningship");
+		else
+			print_string_exit();
 		f.mlx = mlx_init();
 		f.win = mlx_new_window(f.mlx, f.width, f.height, "Rhanna");
 		f.img = mlx_new_image(f.mlx, f.width, f.height);
@@ -46,25 +84,8 @@ void	init_fractal(t_fractal f)
 		mlx_mouse_hook(f.win, mouse_hook, &f);
 		mlx_hook(f.win, 17, 0, end_project, &f);
 		mlx_loop(f.mlx);
-}
-
-int main(int argc, char **argv)
-{
-	t_fractal f;
-
-	if (argc == 2)
-	{
-		if (!(ft_strncmp(argv[1], "mandelbrot", 10)) && (ft_strlen(argv[1]) == 10))
-			mandelbrot_parameter(&f, "mandelbrot");
-		else if (!(ft_strncmp(argv[1], "julia", 5)) && (ft_strlen(argv[1]) == 5))
-			julia_parameter(&f, "julia");
-		else if (!(ft_strncmp(argv[1], "burningship", 11)) && (ft_strlen(argv[1]) == 11))
-			burningship_parameter(&f, "burningship");
-		else
-			print_string_exit();
-		init_fractal(f);
 	}
 	else
 		print_string_exit();
 	return (0);
-}
+} */
