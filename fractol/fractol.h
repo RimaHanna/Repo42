@@ -24,6 +24,7 @@
 # define LEFT_MOUSE_BUTTON 1
 # define RIGHT_MOUSE_BUTTON 3
 # define ZOOM_FACTOR 1.3
+# define MLX_ERROR 1
 
 typedef struct s_imag
 {

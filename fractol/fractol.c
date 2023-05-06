@@ -36,23 +36,35 @@ void	print_string_exit(void)
 	exit (1);
 }
 
+void	parameter_check(t_fractal *f, int ac, char **av)
+{
+	if ((ac == 2) && ft_str_equal(av[1], "m"))
+		mandelbrot_parameter(f, "mandelbrot");
+	else if ((ac == 2) && ft_str_equal(av[1], "j"))
+		julia_parameter(f, "julia");
+	else if ((ac == 2) && ft_str_equal(av[1], "b"))
+		burningship_parameter(f, "burningship");
+	else if ((ac == 4) && ft_str_equal(av[1], "j")
+			&& (is_number(av[2])) && (is_number(av[3])))
+		julia_parameter_plus(f, "julia", atof(av[2]), atof(av[3]));
+	else
+		print_string_exit();
+}
+
 int main(int ac, char **av)
 {
 	t_fractal f;
 
-	if ((ac == 2) && ft_str_equal(av[1], "m"))
-		mandelbrot_parameter(&f, "mandelbrot");
-	else if ((ac == 2) && ft_str_equal(av[1], "j"))
-		julia_parameter(&f, "julia");
-	else if ((ac == 2) && ft_str_equal(av[1], "b"))
-		burningship_parameter(&f, "burningship");
-	else if ((ac == 4) && ft_str_equal(av[1], "j")
-			&& (is_number(av[2])) && (is_number(av[3])))
-		julia_parameter_plus(&f, "julia", atof(av[2]), atof(av[3]));
-	else
-		print_string_exit();
+	parameter_check(&f, ac, av);
 	f.mlx = mlx_init();
+	if (f.mlx == NULL)
+		return (MLX_ERROR);
 	f.win = mlx_new_window(f.mlx, f.width, f.height, "Rhanna");
+	if (f.win == NULL)
+	{
+		free (f.win);
+		return (MLX_ERROR);
+	}
 	f.img = mlx_new_image(f.mlx, f.width, f.height);
 	refresh_image(&f);
 	mlx_key_hook(f.win, key_hook, &f);
@@ -61,31 +73,3 @@ int main(int ac, char **av)
 	mlx_loop(f.mlx);
 	return (0);
 }
-/*
-int main(int ac, char **av)
-{
-	t_fractal f;
-
-	if (ac == 2)
-	{
-		if (!(ft_strncmp(av[1], "m", 1)) && (ft_strlen(av[1]) == 1))
-			mandelbrot_parameter(&f, "mandelbrot");
-		else if (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1))
-			julia_parameter(&f, "julia");
-		else if (!(ft_strncmp(av[1], "b", 1)) && (ft_strlen(av[1]) == 1))
-			burningship_parameter(&f, "burningship");
-		else
-			print_string_exit();
-		f.mlx = mlx_init();
-		f.win = mlx_new_window(f.mlx, f.width, f.height, "Rhanna");
-		f.img = mlx_new_image(f.mlx, f.width, f.height);
-		refresh_image(&f);
-		mlx_key_hook(f.win, key_hook, &f);
-		mlx_mouse_hook(f.win, mouse_hook, &f);
-		mlx_hook(f.win, 17, 0, end_project, &f);
-		mlx_loop(f.mlx);
-	}
-	else
-		print_string_exit();
-	return (0);
-} */
