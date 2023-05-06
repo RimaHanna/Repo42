@@ -40,13 +40,13 @@ int main(int ac, char **av)
 {
 	t_fractal f;
 
-	if ((ac == 2) && (!(ft_strncmp(av[1], "m", 1)) && (ft_strlen(av[1]) == 1)))
+	if ((ac == 2) && ft_str_equal(av[1], "m"))
 		mandelbrot_parameter(&f, "mandelbrot");
-	else if ((ac == 2) && (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1)))
+	else if ((ac == 2) && ft_str_equal(av[1], "j"))
 		julia_parameter(&f, "julia");
-	else if ((ac == 2) && (!(ft_strncmp(av[1], "b", 1)) && (ft_strlen(av[1]) == 1)))
+	else if ((ac == 2) && ft_str_equal(av[1], "b"))
 		burningship_parameter(&f, "burningship");
-	else if ((ac == 4) && (!(ft_strncmp(av[1], "j", 1)) && (ft_strlen(av[1]) == 1))
+	else if ((ac == 4) && ft_str_equal(av[1], "j")
 			&& (is_number(av[2])) && (is_number(av[3])))
 		julia_parameter_plus(&f, "julia", atof(av[2]), atof(av[3]));
 	else

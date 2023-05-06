@@ -73,5 +73,6 @@ int	mouse_hook(int keycode, int x, int y, t_fractal *f);
 int	ft_strncmp(char *s1, char *s2, int n);
 int	ft_strlen(char *s);
 int is_number(char *s);
+int	ft_str_equal(char *s1, char *s2);
 
 #endif
