@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mousehooks.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:22:58 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/04 15:09:26 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 /**
@@ -8,22 +20,24 @@
  * So it needs to be displaced.
  * @param {t_fractal *} pointer to the fractal
 */
-void adjust_mandelbrot(t_fractal *f)
+void	adjust_mandelbrot(t_fractal *f)
 {
-    if (!(ft_strncmp(f->name, "mandelbrot", 10)))
+	if (!(ft_strncmp(f->name, "mandelbrot", 10)))
 	{
 		f->xarrow = (((f->width + f->xmove * 2) * f->zoom) - f->width) / 2;
 		f->yarrow = (((f->height + 200 + f->ymove * 2) * f->zoom)
-			 - f->height) / 2;
+				- f->height) / 2;
 	}
 }
 
-void adjust_burningship(t_fractal *f)
+void	adjust_burningship(t_fractal *f)
 {
-    if (!(ft_strncmp(f->name, "burningship", 11)))
+	if (!(ft_strncmp(f->name, "burningship", 11)))
 	{
-		f->xarrow = (((f->width + f->xmove) * f->zoom) - f->width) / 2 + (400  * f->zoom);
-		f->yarrow = (((f->height + f->ymove) * f->zoom) - f->height) / 2 + (100 * f->zoom);
+		f->xarrow = (((f->width + f->xmove) * f->zoom)
+				- f->width) / 2 + (400 * f->zoom);
+		f->yarrow = (((f->height + f->ymove) * f->zoom)
+				- f->height) / 2 + (100 * f->zoom);
 	}
 }
 
@@ -31,18 +45,18 @@ int	mouse_hook(int keycode, int x, int y, t_fractal *f)
 {
 	if (x == y)
 		return (0);
-    if (keycode == MOUSE_WHEEL_ZOOM_IN )
+	if (keycode == MOUSE_WHEEL_ZOOM_IN)
 	{
-       f->zoom *= ZOOM_FACTOR;
-		if(f->iters < 150)
+		f->zoom *= ZOOM_FACTOR;
+		if (f->iters < 150)
 			f->iters++;
-    }
-    else if (keycode == MOUSE_WHEEL_ZOOM_OUT)
-    {
-		if(f->iters > 80)
+	}
+	else if (keycode == MOUSE_WHEEL_ZOOM_OUT)
+	{
+		if (f->iters > 80)
 			f->iters--;
-        f->zoom /= ZOOM_FACTOR;
-    }
+		f->zoom /= ZOOM_FACTOR;
+	}
 	else if (keycode == LEFT_MOUSE_BUTTON && !ft_strncmp(f->name, "julia", 5))
 	{
 		f->c.x = ((double) x / f->width * 4 - 2);
@@ -51,6 +65,6 @@ int	mouse_hook(int keycode, int x, int y, t_fractal *f)
 	}
 	adjust_mandelbrot(f);
 	adjust_burningship(f);
-    refresh_image(f);
-    return (0);
+	refresh_image(f);
+	return (0);
 }

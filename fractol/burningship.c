@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   burningship.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:19:28 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/04 14:33:24 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-double fabs_positive(double x)
+double	fabs_positive(double x)
 {
-    if (x < 0) 
-        return (-x);
-    else 
-        return (x);
+	if (x < 0)
+		return (-x);
+	else
+		return (x);
 }
+
 void	miniburning(int x, int y, t_fractal *f)
 {
 	int		i;
@@ -22,9 +35,9 @@ void	miniburning(int x, int y, t_fractal *f)
 	while (++i < f->iters)
 	{
 		tmp = zr;
-		zr = fabs_positive(zr*zr - zi*zi + f->xi);
-		zi = fabs_positive(2*zi*tmp + f->yi);
-		if (((zr * zr) + (zi * zi)) > 4) 
+		zr = fabs_positive(zr * zr - zi * zi + f->xi);
+		zi = fabs_positive(2 * zi * tmp + f->yi);
+		if (((zr * zr) + (zi * zi)) > 4)
 		{
 			my_mlx_pixel_put(f, (int) x, (int) y, f->color * (i));
 			break ;

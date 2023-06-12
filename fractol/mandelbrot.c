@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:23:47 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/04 14:36:40 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void	minimandel (int x, int y, t_fractal *f)
+void	minimandel(int x, int y, t_fractal *f)
 {
 	int		i;
 	double	zr;
@@ -15,9 +27,9 @@ void	minimandel (int x, int y, t_fractal *f)
 	while (++i < f->iters)
 	{
 		tmp = zr;
-		zr = zr*zr - zi*zi + f->xi;
-		zi = 2*zi*tmp + f->yi;
-		if (((zr * zr) + (zi * zi)) > 4) 
+		zr = zr * zr - zi * zi + f->xi;
+		zi = 2 * zi * tmp + f->yi;
+		if (((zr * zr) + (zi * zi)) > 4)
 		{
 			my_mlx_pixel_put(f, (int) x, (int) y, f->color * (i));
 			break ;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parameter.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:20:22 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/09 10:38:10 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	my_mlx_pixel_put(t_fractal *f, int x, int y, int color)
@@ -5,7 +17,7 @@ int	my_mlx_pixel_put(t_fractal *f, int x, int y, int color)
 	char	*dst;
 
 	dst = f->addr + (y * f->line_length + x
-				 * (f->bits_per_pixel / 8));
+			* (f->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 	return (0);
 }

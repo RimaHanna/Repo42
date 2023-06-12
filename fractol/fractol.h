@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:19:53 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/09 10:40:30 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -9,6 +21,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 
+# define MLX_ERROR 1
 # define ESC 65307
 # define LEFT 65361
 # define UP 65362
@@ -24,7 +37,6 @@
 # define LEFT_MOUSE_BUTTON 1
 # define RIGHT_MOUSE_BUTTON 3
 # define ZOOM_FACTOR 1.3
-# define MLX_ERROR 1
 
 typedef struct s_imag
 {
@@ -32,7 +44,7 @@ typedef struct s_imag
 	double	y;
 }			t_comp;
 
-typedef struct	s_fractal
+typedef struct s_fractal
 {
 	void	*mlx;
 	void	*win;
@@ -59,21 +71,21 @@ typedef struct	s_fractal
 
 void	mandelbrot_parameter(t_fractal *f, char *name);
 void	julia_parameter(t_fractal *f, char *name);
-void	julia_parameter_plus(t_fractal *f, char *name, double c_x, double c_y);
 void	burningship_parameter(t_fractal *f, char *name);
+void	julia_parameter_plus(t_fractal *f, char *name, double c_x, double c_y);
 
 void	refresh_image(t_fractal *f);
 void	mandelbrotset(t_fractal *m);
 void	juliaset(t_fractal *f);
 void	burningshipset(t_fractal *f);
 
-int	my_mlx_pixel_put(t_fractal *f, int x, int y, int color);
-int	end_project(t_fractal *f);
-int	key_hook(int keycode, t_fractal *f);
-int	mouse_hook(int keycode, int x, int y, t_fractal *f);
-int	ft_strncmp(char *s1, char *s2, int n);
-int	ft_strlen(char *s);
-int is_number(char *s);
-int	ft_str_equal(char *s1, char *s2);
+int		my_mlx_pixel_put(t_fractal *f, int x, int y, int color);
+int		end_project(t_fractal *f);
+int		key_hook(int keycode, t_fractal *f);
+int		mouse_hook(int keycode, int x, int y, t_fractal *f);
+int		ft_strncmp(char *s1, char *s2, int n);
+int		ft_strlen(char *s);
+int		ft_str_equal(char *s1, char *s2);
+int		is_number(char *s);
 
 #endif

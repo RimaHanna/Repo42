@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:20:13 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/04 14:49:13 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 t_comp	add(t_comp a, t_comp b)
@@ -21,7 +33,7 @@ t_comp	sqr(t_comp a)
 t_comp	mappoint(t_fractal *f, double x, double y)
 {
 	t_comp	c;
-	double		l;
+	double	l;
 
 	if (f->width < f->height)
 		l = f->height * f->zoom;
@@ -47,7 +59,7 @@ void	juliaset(t_fractal *f)
 		while (++f->yi <= f->height)
 		{
 			z0 = mappoint(f, f->xi - (f->width / 2) + f->xarrow,
-					 f->yi - (f->height / 2) + f->yarrow);
+					f->yi - (f->height / 2) + f->yarrow);
 			i = 0;
 			while (i++ <= f->iters)
 			{

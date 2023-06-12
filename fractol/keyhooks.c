@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyhooks.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhanna <rhanna@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/04 14:23:11 by rhanna            #+#    #+#             */
+/*   Updated: 2023/05/04 14:35:48 by rhanna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void	key_hook_key(int keycode,t_fractal *f)
+void	key_hook_key(int keycode, t_fractal *f)
 {
 	if (keycode == LEFT)
 	{
@@ -41,7 +53,6 @@ int	key_hook(int keycode, t_fractal *f)
 	}
 	key_hook_key(keycode, f);
 	key_hook_color(keycode, f);
-
 	if (keycode == JULIA_J)
 	{
 		write(1, "Julia reset!\n", 13);
