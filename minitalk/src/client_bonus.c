@@ -45,20 +45,19 @@ void    ft_handler(int signal)
     }
 }
 
-int main(int argc, char **argv)
+void    check_arguments(int ac, char *str1, char *str2)
 {
     int pid;
     int i;
     int self_pid;
-    struct sigaction sa;
 
     i = 0;
-    if (argc == 3)
+    if (ac == 3)
     {
-        pid = ft_atoi(argv[1]);
-        while (argv[2][i])
+        pid = ft_atoi(str1);
+        while (str2[i])
         {
-            ft_send_bits(pid, argv[2][i]);
+            ft_send_bits(pid, str2[i]);
             i++;
         }
         ft_send_bits(pid, '\n');
@@ -71,8 +70,39 @@ int main(int argc, char **argv)
     {
         ft_printf("\033[31mError: wrong format.\033[0m\n");
         ft_printf("Try: ./client <PID> <Message>\n");
-        return (1);
+        exit (1);
     }
+}
+
+int main(int argc, char **argv)
+{
+//    int pid;
+//    int i;
+//    int self_pid;
+    struct sigaction sa;
+
+//    i = 0;
+    check_arguments(argc, argv[1], argv[2]);
+    // if (argc == 3)
+    // {
+    //     pid = ft_atoi(argv[1]);
+    //     while (argv[2][i])
+    //     {
+    //         ft_send_bits(pid, argv[2][i]);
+    //         i++;
+    //     }
+    //     ft_send_bits(pid, '\n');
+    //     // get client pid
+    //     self_pid = getpid();
+    //     // send clientPId to server after the message + \n
+    //     ft_send_int(pid, self_pid);
+    // }
+    // else
+    // {
+    //     ft_printf("\033[31mError: wrong format.\033[0m\n");
+    //     ft_printf("Try: ./client <PID> <Message>\n");
+    //     return (1);
+    // }
     // boucle while that waits for a signal
     sa.sa_handler = ft_handler;
     sigemptyset(&sa.sa_mask);

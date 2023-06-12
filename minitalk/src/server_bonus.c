@@ -29,7 +29,7 @@ void    ft_handler(int signal)
     if(is_client_pid == 1)
     {
         is_client_pid = ft_handler_pid(signal);
-        return;
+        return ;
     }
     if (signal == SIGUSR1)
         i = i | (0x01 << bit);
@@ -38,9 +38,7 @@ void    ft_handler(int signal)
     {
         ft_printf("%c", i);
         if(i == '\n')
-        {
             is_client_pid = 1;
-        }
         bit = 0;
         i = 0;
     }
