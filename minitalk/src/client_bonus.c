@@ -41,7 +41,7 @@ void    ft_handler(int signal)
     if (signal == SIGUSR1)
     {
         ft_printf("\033[33mReply received\033[0m\n");
-        exit(0);
+        exit (0);
     }
 }
 
@@ -50,6 +50,7 @@ int main(int argc, char **argv)
     int pid;
     int i;
     int self_pid;
+    struct sigaction sa;
 
     i = 0;
     if (argc == 3)
@@ -73,11 +74,14 @@ int main(int argc, char **argv)
         return (1);
     }
     // boucle while that waits for a signal
+    sa.sa_handler = ft_handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
     while (argc == 3)
     {
         ft_printf("\033[32mWaiting for reply...\033[0m\n");
         // when signal is received, break; from the while
-        signal(SIGUSR1, ft_handler);
+        sigaction(SIGUSR1, &sa, NULL);
         pause ();
     }
     return (0);

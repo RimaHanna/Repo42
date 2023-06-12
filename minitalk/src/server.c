@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 {
     (void) argv;
     int pid;    
+    struct sigaction sa;
 
     if (argc != 1)
     {
@@ -30,10 +31,13 @@ int main(int argc, char **argv)
     pid = getpid();
     ft_printf("\033[33m%d\033[0m\n", pid);
     ft_printf("\033[34mWaiting for a message...\033[0m\n");
+    sa.sa_handler = ft_handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
     while (argc == 1)
     {
-        signal(SIGUSR1, ft_handler);
-        signal(SIGUSR2, ft_handler);
+        sigaction(SIGUSR1, &sa, NULL);
+        sigaction(SIGUSR2, &sa, NULL);
         pause ();
     }
     return (0);
