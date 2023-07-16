@@ -1,0 +1,29 @@
+The project likely involves creating multiple threads, each corresponding to 
+a philosopher, and using mutexes to control access to shared data (such as fork
+availability, philosopher state, meal count). The simulation proceeds by 
+allowing philosophers to alternate between thinking, eating, and sleeping, with 
+synchronization mechanisms to prevent conflicts and ensure fair resource 
+allocation (e.g., preventing deadlocks or starvation).
+
+The t_data structure holds all the shared data necessary for synchronization 
+and coordination between philosophers. Each t_philo structure represents an 
+individual philosopher and contains its specific information and synchronization
+ mechanisms.
+
+The overall logic of the project would involve creating threads for each 
+philosopher, implementing the dining philosophers algorithm, handling thread 
+synchronization, and monitoring the termination conditions (e.g., meal limit 
+reached).
+
+pthread_mutex_t is a type representing a mutex (short for mutual exclusion). 
+A mutex is a synchronization primitive used to protect shared resources from 
+concurrent access by multiple threads. It allows only one thread to lock 
+(or acquire) the mutex at a time, while other threads that attempt to lock 
+the mutex will be blocked until it becomes available. 
+
+pthread_t is a type representing a thread identifier. It is used to uniquely 
+identify a thread created by the pthread_create function. A thread identifier 
+can be used to perform operations related to the thread, such as joining threads
+with pthread_join, detaching threads with pthread_detach, or comparing thread 
+identifiers with pthread_equal. Thread identifiers are used to manage and 
+interact with individual threads in a multithreaded program.
