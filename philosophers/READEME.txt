@@ -27,3 +27,8 @@ can be used to perform operations related to the thread, such as joining threads
 with pthread_join, detaching threads with pthread_detach, or comparing thread 
 identifiers with pthread_equal. Thread identifiers are used to manage and 
 interact with individual threads in a multithreaded program.
+
+In C, the dot (.) operator is used to access members of a structure when you 
+have a direct instance of the structure. On the other hand, the arrow (->) 
+operator is used to access members of a structure when you have a pointer to 
+the structure.

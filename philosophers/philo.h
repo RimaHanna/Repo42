@@ -46,6 +46,17 @@ the actual compilation takes place. */
 /* gettimeofday failure */
 # define GETTIMEOFDAY_FAIL 4
 
+/* Failure in creating a thread*/
+# define PTHREAD_CREATE_FAIL 5
+
+/* define macro messages*/
+# define TAKE_FORKS "has taken a fork"
+# define EAT "is eating"
+# define SLEEP "is sleeping"
+# define THINK "is thinking"
+# define DIED "died"
+
+
 /* List of possible values for the state of a philosopher
     The state of a philoseopher will not be philo.state = 1
     It will be philo.state = s_state.sleeping
@@ -96,20 +107,83 @@ typedef struct s_data
     uint64_t        time_to_die; // die_time
     uint64_t        time_to_eat; // eat_time
     uint64_t        time_to_sleep; // sleep_time
-    uint64_t        time_to_start; //start_time
-    pthread_mutex_t mutex_nb_of_philos; // mut_nb_philos
+    uint64_t        starting_time; //start_time
+//    pthread_mutex_t mutex_nb_of_philos; // mut_nb_philos
     pthread_mutex_t mutex_keep_iterating; // mut_keep_iterating
     pthread_mutex_t mutex_time_to_eat; // mut_eat_time
     pthread_mutex_t mutex_time_to_sleep; // mut_sleep_time
     pthread_mutex_t mutex_time_to_die; // mut_die_time
-    pthread_mutex_t mutex_time_to_start; // mut_start_time
-    pthread_mutex_t mutex_print; // mut_print
+    pthread_mutex_t mutex_starting_time; // mut_start_time
+    pthread_mutex_t mutex_print_message; // mut_print
     pthread_t       monitor_all_alive; // monit_all_alive
     pthread_t       monitor_all_full; // monit_all_full
     struct s_philo  *philos;
     pthread_mutex_t *forks;
     pthread_t       *philo_thread; // *philo_ths
 }t_data;
+
+//print_message.c
+void    print_message(t_data *data, int philo_id, char *message);
+
+//utils.c
+int ft_atoi(char *str);
+
+//data_init.c
+int malloc_data(t_data *data);
+int mutex_data_init(t_data *data);
+int data_init(t_data *data, int ac, char **av);
+int philo_init(t_data *data);
+int fork_init(t_data *data);
+
+
+//time.c
+uint64_t get_time(void);
+void    ft_usleep(uint64_t sleep_time);
+int ft_min(int a, int b);
+
+//state.c
+void    set_philo_state(t_philo *philo, t_state state);
+t_state get_philo_state(t_philo *philo);
+int    philo_died(t_philo *philo);
+
+
+//locks.c
+int    record_last_eating_time(t_philo *philo);
+bool    is_still_iterating(t_data *data);
+void    set_if_keep_iterating(t_data *data,bool set_to);
+
+//get_action_time.c
+uint64_t    get_eat_time(t_data *data);
+uint64_t    get_sleep_time(t_data *data);
+uint64_t    get_die_time(t_data *data);
+uint64_t    get_last_eating_time(t_philo *philo);
+uint64_t    get_starting_time(t_data *data);
+
+//actions.c
+int take_forks(t_philo *philo);
+int eat(t_philo *philo);
+
+//routine.c
+void    *philo_thread_routine(void *philo_p);
+
+
+//parce.c
+void    arguments_error_message();
+int check_numerics(int argc, char **argv);
+int check_args(int ac, char **av);
+
+//lockforks.c
+int take_left_fork(t_philo *philo);
+void    drop_left_fork(t_philo *philo);
+int take_right_fork(t_philo *philo);
+void    drop_right_fork(t_philo *philo);
+
+int handle_one_philo(t_philo *philo);
+
+//philo.c
+int create_run_threads(t_data *data);
+int philosophers(int ac, char **av);
+int main(int argc, char **argv);
 
 
 #endif
