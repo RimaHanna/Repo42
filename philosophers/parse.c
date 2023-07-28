@@ -1,4 +1,3 @@
-
 #include "philo.h"
 
 void    arguments_error_message()
@@ -9,7 +8,7 @@ void    arguments_error_message()
     printf("\033[1;33mFirst argument (number of philosophers) \033[0m");
     printf("\033[1;33mshould be between 1 and 200\033[0m\n");
     printf("\033[1;35mSecond argument time_to die, 60 or above\033[0m\n");
-    printf("\033[1;Third argument time_to eat, 60 or above\033[0m\n");
+    printf("\033[1;35mThird argument time_to eat, 60 or above\033[0m\n");
     printf("\033[1;35mForth argument time_to sleep, 60 or above\033[0m\n");
     printf("\033[1;34mFifth argument above 0\033[0m\n\n");
 

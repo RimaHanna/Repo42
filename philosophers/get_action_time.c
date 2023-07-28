@@ -1,6 +1,5 @@
 #include "philo.h"
 
-// get_action_time.c
 uint64_t get_eat_time(t_data *data)
 {
     uint64_t eat_time;
@@ -11,7 +10,6 @@ uint64_t get_eat_time(t_data *data)
     return (eat_time);
 }
 
-// get_action_time.c
 uint64_t    get_sleep_time(t_data *data)
 {
     uint64_t sleep_time;
@@ -22,7 +20,6 @@ uint64_t    get_sleep_time(t_data *data)
     return (sleep_time);
 }
 
-// get_action_time.c
 uint64_t get_die_time(t_data *data)
 {
     uint64_t die_time;
@@ -33,7 +30,6 @@ uint64_t get_die_time(t_data *data)
     return (die_time);
 }
 
-// get_action_time.c
 uint64_t get_last_eating_time(t_philo *philo)
 {
     uint64_t last_eat_time;
@@ -44,7 +40,6 @@ uint64_t get_last_eating_time(t_philo *philo)
     return (last_eat_time);
 }
 
-// get_action_time.c
 uint64_t get_starting_time(t_data *data)
 {
     uint64_t get_start_time;
