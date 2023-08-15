@@ -188,7 +188,7 @@ int         fork_init(t_data *data);
 
 // time.c
 uint64_t    get_time(void);
-void        ft_usleep(uint64_t sleep_time);
+void    ft_usleep(uint64_t sleep_time, t_data *data);
 int         ft_min(int a, int b);
 
 // state.c

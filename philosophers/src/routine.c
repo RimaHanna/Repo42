@@ -17,8 +17,9 @@ void    *philo_thread_routine(void *philo_p)
 
     philo = (t_philo*) philo_p;
     record_last_eating_time(philo);
-    while (get_philo_state(philo) != DEAD) // keep iterating
+    while ((get_philo_state(philo) != DEAD) && is_still_iterating(philo->data)) // keep iterating
     {
+        printf("start eat[%d]\n", philo->id);
         if (eat_action(philo) != 0)
         {
             usleep(100);
@@ -78,7 +79,7 @@ void    *philos_are_full_routine_check(void *data_p)
     }
     if (is_still_iterating(data) == true)
     {
-        ft_log(data, "philos_are_full_routine_check set_if_keep_iterating(data, false)");
+    //    ft_log(data, "philos_are_full_routine_check set_if_keep_iterating(data, false)");
         set_if_keep_iterating(data, false);
     }
     return (NULL);

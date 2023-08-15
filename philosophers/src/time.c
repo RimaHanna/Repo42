@@ -20,12 +20,12 @@ We choose each small sleeping time to be 500ms. If the remaining time is < 500,
 the thread will only sleep the remaining time.
 */
 //time.c
-void    ft_usleep(uint64_t sleep_time)
+void    ft_usleep(uint64_t sleep_time, t_data *data)
 {
     uint64_t start;
 
     start = get_time();
-    while ((get_time() - start) < sleep_time)
+    while (((get_time() - start) < sleep_time) && is_still_iterating(data))
     {
         usleep(ft_min(500, get_time() - start));
     }

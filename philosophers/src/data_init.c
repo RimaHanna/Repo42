@@ -70,6 +70,7 @@ int data_init(t_data *data, int ac, char **av)
     data->time_to_die = (uint64_t) (ft_atoi(av[2]));
     data->time_to_eat = (uint64_t) (ft_atoi(av[3]));
     data->time_to_sleep = (uint64_t) (ft_atoi(av[4]));
+    printf("time_to_sleep %ld\n", data->time_to_sleep);
     if (mutex_data_init(data) != 0)
         return (INVALID_MUTEX_INIT);
     if (malloc_data(data) != 0)

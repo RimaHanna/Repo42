@@ -20,7 +20,6 @@ CFLAGS = -Wall -Wextra -Werror -g -pthread -Iincludes
 
 RM = rm -rf
 
-
 all: $(NAME)
 
 $(NAME): $(OBJS)

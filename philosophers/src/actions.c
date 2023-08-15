@@ -38,7 +38,7 @@ int eat_action(t_philo *philo)
     set_philo_state(philo, EATING);
     print_message(philo->data, philo->id, EAT);
     record_last_eating_time(philo);
-    ft_usleep(get_eat_time(philo->data));
+    ft_usleep(get_eat_time(philo->data), philo->data);
     record_nb_of_eated_meals(philo);
     drop_left_fork(philo);
     drop_right_fork(philo);
@@ -51,7 +51,7 @@ int sleep_action(t_philo *philo)
     if (get_philo_state(philo) == DEAD)
         return (1);
     print_message(philo->data, philo->id, SLEEP);
-    ft_usleep(get_sleep_time(philo->data));
+    ft_usleep(get_sleep_time(philo->data), philo->data);
     return (0);
 }
 

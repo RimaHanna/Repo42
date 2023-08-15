@@ -46,29 +46,3 @@ int record_last_eating_time(t_philo *philo)
     pthread_mutex_unlock(&philo->mutex_last_eating_time);
     return (1);
 }
-
-/*
-The get_nb_philos is used in the function create_run_threads, 
-the data->nb_of_philos will be will be accessed by many thread, 
-in order to have a proper synchronization and to safe access to 
-the nb_of_philos, we use a mutex_lock, otherwize the shared nb_of_philos data 
-without protection could lead to data races, inconsistent values, or other 
-undefined behavior.
-*/
-/* 
-This code might not be needed since nb_of_philos would not be manipulated 
-by threads
-*/
-/*
-int get_nb_of_philos(t_data *data)
-{
-    int nb_philos;
-
-    pthread_mutex_lock(&data->mutex_nb_of_philos);
-    nb_philos = data->nb_of_philos;
-    if (nb_philos < 1)
-        return (INVALID_ARGUMENT);
-    pthread_mutex_unlock(&data->mutex_nb_of_philos);
-    return (nb_philos);
-}
-*/

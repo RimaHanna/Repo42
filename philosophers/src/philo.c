@@ -3,7 +3,7 @@
 int handle_one_philo(t_philo *philo)
 {
     take_left_fork(philo);
-    ft_usleep(get_die_time(philo->data));
+    ft_usleep(get_die_time(philo->data), philo->data);
     set_philo_state(philo, DEAD);
     return (1);
 }
@@ -30,11 +30,11 @@ start_time will record the starting time of the simulation
     if (pthread_create(&data->monitor_all_alive, NULL,
                 &philos_are_alive_routine_check, data) != 0)
             return (PTHREAD_CREATE_FAIL);
-        if ((data->nb_of_meals > 0) && 
-                (pthread_create(&data->monitor_all_full, NULL,
-                    &philos_are_full_routine_check, data) != 0))
-            return (PTHREAD_CREATE_FAIL);    
-    return (0);
+    if ((data->nb_of_meals > 0) && 
+            (pthread_create(&data->monitor_all_full, NULL,
+                &philos_are_full_routine_check, data) != 0))
+            return (PTHREAD_CREATE_FAIL);
+    return (0); 
 }
 
 int join_threads(t_data *data)
@@ -42,16 +42,20 @@ int join_threads(t_data *data)
     int i;
 
     i = 0;
-    while (i < data->nb_of_philos)
-    {
-        if (pthread_join(data->philo_thread[i], NULL))
-            return (1);
-        i++;
-    }
     if (pthread_join(data->monitor_all_alive, NULL))
         return (1);
     if ((data->nb_of_meals > 0) && (pthread_join(data->monitor_all_full, NULL)))
         return (1);
+    while (i < data->nb_of_philos)
+    {
+        ft_log(data, "join_threads l: 51");
+        printf("data->philo_thread[%d]\n", i);
+        if (pthread_join(data->philo_thread[i], NULL))
+        {
+            return (1);
+        }
+        i++;
+    }
     return (0);
 }
 
