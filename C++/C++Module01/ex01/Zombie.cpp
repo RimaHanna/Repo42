@@ -1,5 +1,6 @@
 #include "Zombie.hpp"
 
+// initializing the attribute, but it is not necessary
 Zombie::Zombie()
 {
 	this->_name = "";

@@ -2,10 +2,13 @@
 
 int main(void)
 {
-	int i = 0;
-	int n = 4;
+	int i;
+	int n;
+	Zombie *horde;
 
-	Zombie *horde = zombieHorde(n, "Rima");
+	i = 0;
+	n = 4;
+	horde = zombieHorde(n, "Rima");
 	while(i < n)
 	{
 		horde[i].announce();

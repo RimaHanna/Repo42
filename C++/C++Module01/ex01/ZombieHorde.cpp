@@ -2,8 +2,11 @@
 
 Zombie	*zombieHorde(int n, std::string name)
 {
-	int i = 0;
-	Zombie *horde = new Zombie[n];
+	int i;
+	Zombie *horde; // equivalent to char *str;
+
+	i = 0;
+	horde = new Zombie[n]; // equivalenet to str = malloc(size of char)
 	while (i < n)
 	{
 		horde[i].setName(name);
