@@ -50,3 +50,38 @@ int	available_list(Contacts phb_contacts[8])
 	std::cout << " ------------------------------------------- " << std::endl;
 	return (i);
 }
+
+/*
+int	available_list(Contacts phb_contacts[8])
+{
+	int			i;
+	std::string str;
+
+	i = 0;
+	str = "";
+
+	std::cout << " ___________________________________________ " << std::endl;
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+
+	while (++i <= 8 && phb_contacts[i - 1].get_firstName().size() > 0)
+	{
+		if (phb_contacts[i - 1].get_firstName().size() && i)
+		{
+			str = i + '0';
+			std::cout << "|" << fill_spaces(10 - str.size()) << str;
+			str = resize(phb_contacts[i - 1].get_firstName(), 10);
+			std::cout << "|" << fill_spaces(10 - str.size()) << str;
+			str = resize(phb_contacts[i - 1].get_lastName(), 10);
+			std::cout << "|" << fill_spaces(10 - str.size()) << str;
+			str = resize(phb_contacts[i - 1].get_nickname(), 10);
+			std::cout << "|" << fill_spaces(10 - str.size()) << str << "|";
+			std::cout << std::endl;
+		}
+	}
+	i--;
+	std::cout << " ------------------------------------------- " << std::endl;
+	std::cout << "i est egale a " << i << std::endl;
+	return (i);
+}
+*/
