@@ -1,6 +1,6 @@
 NAME = Booky
 
-SRC = Phonebook.cpp Contacts.cpp Utils.cpp main.cpp
+SRC = Phonebook.cpp Contacts.cpp utils.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

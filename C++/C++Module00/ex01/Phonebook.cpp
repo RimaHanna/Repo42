@@ -20,7 +20,7 @@ Phonebook::Phonebook()
 */
 Phonebook::~Phonebook()
 {
-
+	std::cout << "Phonebook destructor called. Cleaning up..." << std::endl;
 }
 
 /**

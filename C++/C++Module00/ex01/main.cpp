@@ -6,14 +6,15 @@
 int main(void)
 {
 	Phonebook phb;
-	// instead of doing a construcor i can directly write the message here
+	// instead of doing a constructor i can directly write the message here
 	std::string userCommandInput;
 	while (1)
 	{	
 		std::cout << "\x1B[1;38;5;4mEnter command ADD, SEARCH or EXIT.\x1B[0m" << std::endl;
 		std::cout << "\x1B[38;5;4mYour command > \x1B[0m";
-		std::getline(std::cin, userCommandInput);
 		
+		if (!std::getline(std::cin, userCommandInput))
+			return 0;
 		if (userCommandInput == "ADD")
 			phb.add();
 		else if (userCommandInput == "SEARCH")
