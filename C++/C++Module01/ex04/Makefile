@@ -1,10 +1,9 @@
-SRC = main.cpp Zombie.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME = replace
 CC = g++
-RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-
-NAME = zombie
+RM = rm -f
+SRC = main.cpp
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

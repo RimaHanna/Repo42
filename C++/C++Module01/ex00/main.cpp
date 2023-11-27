@@ -15,5 +15,5 @@ int main(void)
     // Delete the dynamically allocated zombie to free memory
     delete zmb;
 
-    return (0);
+    return 0;
 }

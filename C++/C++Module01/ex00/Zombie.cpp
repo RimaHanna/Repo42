@@ -1,17 +1,26 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+/**
+ * Zombie.cpp:
+ * Constructor and destructor implementations with debug messages.
+ * Implementation of the announce function.
+*/
+
+// Constructor implementation
+Zombie::Zombie(std::string name) 
 {
-	this->_name = name;
-	std::cout << "Zombie object " << this->_name << " created" << std::endl;
+    this->_name = name;
+    std::cout << "Zombie object " << this->_name << " created" << std::endl;
 }
 
-Zombie::~Zombie()
+// Destructor implementation
+Zombie::~Zombie() 
 {
-	std::cout << "Zombie object " << this->_name << " destroyed" << std::endl;
+    std::cout << "Zombie object " << this->_name << " destroyed" << std::endl;
 }
 
-void	Zombie::announce()
+// Member function to make a zombie announce itself
+void Zombie::announce() 
 {
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }
