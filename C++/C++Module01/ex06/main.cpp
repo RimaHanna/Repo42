@@ -19,12 +19,24 @@ void	harl_switch(char *argv, Harl & H)
 	{
 		case 0:
 			H.complain("DEBUG");
+			std::cout << std::endl;
+			H.complain("INFO");
+			std::cout << std::endl;
+			H.complain("WARNING");
+			std::cout << std::endl;
+			H.complain("ERROR");
 			break;
 		case 1:
 			H.complain("INFO");
+			std::cout << std::endl;
+			H.complain("WARNING");
+			std::cout << std::endl;
+			H.complain("ERROR");
 			break;
 		case 2:
 			H.complain("WARNING");
+			std::cout << std::endl;
+			H.complain("ERROR");
 			break;
 		case 3:
 			H.complain("ERROR");
