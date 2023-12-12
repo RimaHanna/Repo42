@@ -13,7 +13,6 @@ Fixed::Fixed(const Fixed &copy_constructor)
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-
     std::cout << "Copy assignement operator called" << std::endl;
     this->setRawBits(other.getRawBits());
     return *this;
