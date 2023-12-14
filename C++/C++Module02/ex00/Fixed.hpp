@@ -15,9 +15,19 @@ class Fixed
         Fixed();
 
         // Copy constructor
-        Fixed(const Fixed &copy_constructor);
+        /* A copy constructor is a special member function 
+         that initializes an object using another object 
+         of the same class. It is used to create a copy 
+         of an existing object.
+        */
+        Fixed(const Fixed &other);
 
         // Copy assignment operator overload
+        /* The copy assignment operator overloading allows you to define 
+         how an object of a class is assigned the value of another 
+         object of the same class. 
+         The copy assignment operator has the form operator=
+        */
         Fixed &operator = (const Fixed &other);
 
         // Default destructor
