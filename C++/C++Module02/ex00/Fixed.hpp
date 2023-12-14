@@ -20,7 +20,7 @@ class Fixed
          of the same class. It is used to create a copy 
          of an existing object.
         */
-        Fixed(const Fixed &other);
+        Fixed(const Fixed & other);
 
         // Copy assignment operator overload
         /* The copy assignment operator overloading allows you to define 
