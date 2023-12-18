@@ -1,5 +1,5 @@
 NAME = replace
-CC = g++
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 RM = rm -f
 SRC = main.cpp

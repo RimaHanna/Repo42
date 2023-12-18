@@ -1,6 +1,6 @@
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 CPPFLAGS = -Wextra -Werror -Wextra -std=c++98 -pedantic
 RM = rm -f
 
