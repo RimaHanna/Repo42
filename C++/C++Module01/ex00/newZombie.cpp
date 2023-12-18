@@ -18,7 +18,7 @@ Zombie* newZombie(std::string name)
 {
     // Dynamically allocate a new zombie.
     Zombie *zombie = new Zombie(name);
-
+    
     // Return a pointer to the created zombie
     return zombie;
 }
