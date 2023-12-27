@@ -1,7 +1,6 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-
 int main()
 {
     ClapTrap attacker("Rima");
