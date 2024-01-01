@@ -12,6 +12,10 @@ and assignment operators from the base class.
 ScavTrap (const ScavTrap &to_copy);
 ScavTrap &operator = (const ScavTrap &original); 
 */
+/* If C1 inherits publicly from C2 (class C1 : public C2), 
+public members of C2 remain public in C1, protected members 
+remain protected, and private members of C2 are not accessible in C1.
+*/
 
 class ScavTrap : public ClapTrap
 {

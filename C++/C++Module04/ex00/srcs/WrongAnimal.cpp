@@ -20,9 +20,9 @@ WrongAnimal::WrongAnimal(const WrongAnimal &other)
     *this = other;
 }
 
-WrongAnimal& WrongAnimal::operator = (const WrongAnimal &original)
+WrongAnimal& WrongAnimal::operator = (const WrongAnimal &other)
 {
-    this->type = original.type;
+    this->type = other.type;
     std::cout << "WrongAnimal copy assignment operator called" << std::endl;
     return *this;
 }

@@ -19,9 +19,9 @@ Cat::Cat(const Cat &other) : Animal(other)
     std::cout << "Cat copy constructor called" << std::endl;
 }
 
-Cat& Cat::operator = (const Cat &original)
+Cat& Cat::operator = (const Cat &other)
 {
-    *this = original;
+    *this = other;
     std::cout << "Cat copy assignment operator called" << std::endl;
     return *this;
 }

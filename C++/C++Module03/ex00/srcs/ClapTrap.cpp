@@ -28,15 +28,15 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
     return ;
 }
 
-ClapTrap& ClapTrap::operator = (const ClapTrap &original)
+ClapTrap& ClapTrap::operator = (const ClapTrap &other)
 {
     // avoid self assignment
-    if (this != &original)
+    if (this != &other)
     {
-        this->name = original.name;
-        this->hit_points = original.hit_points;
-        this->energy_points = original.energy_points;
-        this->attack_damage  =original.attack_damage;
+        this->name = other.name;
+        this->hit_points = other.hit_points;
+        this->energy_points = other.energy_points;
+        this->attack_damage  =other.attack_damage;
         std::cout << "Copy assignment called" << std::endl;
     }
     return *this;
