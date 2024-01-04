@@ -21,7 +21,7 @@ class Fixed
         Fixed(const float flowInt);
 
         // Copy Constructor
-        Fixed(const Fixed & other);
+        Fixed(const Fixed &other);
 
         // Copy assignement operator overload
         Fixed &operator = (const Fixed &other);

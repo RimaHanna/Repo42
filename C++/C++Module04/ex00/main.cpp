@@ -7,6 +7,12 @@
 #include <iostream>
 
 
+/*
+    The aim of ex00 is to inherit a class from a base class,
+    it inherits the public and the protected things in this class,
+    when we use "virtual" it means we can override over this function
+*/
+
 int main()
 {
     std::cout << "\033[34mCreating meta animal---\033[0m" << std::endl;

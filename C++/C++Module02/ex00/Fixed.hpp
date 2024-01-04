@@ -26,7 +26,6 @@ class Fixed
         /* The copy assignment operator overloading allows you to define 
          how an object of a class is assigned the value of another 
          object of the same class. 
-         The copy assignment operator has the form operator=
         */
         Fixed &operator = (const Fixed &other);
 

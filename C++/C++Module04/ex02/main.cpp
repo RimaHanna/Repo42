@@ -9,8 +9,8 @@
 
 int main()
 {
-    /*Since it is an abstract class, we cannot instantiate a class from AANimal,
-    it has to be done from a inherited/derived class*/
+// Since it is an abstract class, we cannot instantiate a class from AANimal,
+// it has to be done from a inherited/derived class
 //    std::cout << "\033[34mCreating meta animal---\033[0m" << std::endl;
 //    const AAnimal* meta = new AAnimal();
     std::cout << std::endl;
