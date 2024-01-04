@@ -4,9 +4,9 @@ INCLUDE = -I./includes
 VPATH = srcs
 RM = rm -rf
 
-GENERAL = Animal Dog Cat WrongAnimal WrongCat
+GENERAL = AAnimal Dog Cat WrongAnimal WrongCat Brain 
 
-NAME = ex00
+NAME = ex02
 SRCS = $(addsuffix .cpp, $(GENERAL))\
 	   main.cpp
 

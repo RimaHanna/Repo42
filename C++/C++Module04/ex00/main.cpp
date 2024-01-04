@@ -9,76 +9,51 @@
 
 int main()
 {
-    std::cout << "Creating meta animal---" << std::endl;
+    std::cout << "\033[34mCreating meta animal---\033[0m" << std::endl;
     const Animal* meta = new Animal();
     std::cout << std::endl;
-    std::cout << "Creating j animal------" << std::endl;
+    std::cout << "\033[34mCreating j animal------\033[0m" << std::endl;
     const Animal* j = new Dog();
     std::cout << std::endl;
-    std::cout << "Creating i animal" << std::endl;
+    std::cout << "\033[34mCreating i animal\033[0m" << std::endl;
     const Animal* i = new Cat();
     std::cout << std::endl;
-    std::cout << "Getting the types------" << std::endl;
-    std::cout << "Type of j: " <<j->getType() << std::endl;
-    std::cout << "Type of i: " <<i->getType() << std::endl;
+    std::cout << "\033[34mGetting the types------\033[0m" << std::endl;
+    std::cout << "\033[34mType of j: \033[0m" <<j->getType() << std::endl;
+    std::cout << "\033[34mType of i: \033[0m" <<i->getType() << std::endl;
     std::cout << std::endl;
-    std::cout << "Sounds of animals------" << std::endl;
-    std::cout << "Cat sound"; 
+    std::cout << "\033[34mSounds of animals------\033[0m" << std::endl;
+    std::cout << "\033[34mCat sound \033[0m"; 
     i->makeSound(); //will output the cat sound!
-    std::cout << "Dog sound";
+    std::cout << "\033[34mDog sound \033[0m";
     j->makeSound(); //will output the dog sound!
     meta->makeSound();
     std::cout << std::endl;
-    std::cout << "Freeing the memory-----" << std::endl;
+    std::cout << "\033[34mFreeing the memory-----\033[0m" << std::endl;
     delete meta;
     delete j;
     delete i;
 
     std::cout << std::endl;
-    std::cout << "---------- WrongAnimal & WrongCat ----------" << std::endl;
+    std::cout << "\033[31m---------- WrongAnimal & WrongCat ----------\033[0m" << std::endl;
 
-    std::cout << "Creating wrong_cat----" << std::endl;
+    std::cout << "\033[34mCreating wrong_cat----\033[0m" << std::endl;
 	const WrongAnimal* wrong_cat = new WrongCat();
     std::cout << std::endl;
-    std::cout << "Creating meta_wrong_animal----" << std::endl;
+    std::cout << "\033[34mCreating meta_wrong_animal----\033[0m" << std::endl;
 	const WrongAnimal* meta_wrong_animal = new WrongAnimal();
 	std::cout << std::endl;
-    std::cout << "Getting the types------" << std::endl;
-    std::cout << "Type of wrong_cat: " <<wrong_cat->getType() << std::endl;
-    std::cout << "Type of meta_wrong_animal: " <<meta_wrong_animal->getType() << std::endl; 
+    std::cout << "\033[34mGetting the types------\033[0m" << std::endl;
+    std::cout << "\033[34mType of wrong_cat: \033[0m" << wrong_cat->getType() << std::endl;
 	std::cout << std::endl;
-    std::cout << "Sounds of animals------" << std::endl;
-    std::cout << "Wrong_cat sound: "; //will output the Wrong animal sound!
+    std::cout << "\033[34mSounds of animals------\033[0m" << std::endl;
+    std::cout << "\033[34mWrong_cat sound:\033[0m "; //will output the Wrong animal sound!
     wrong_cat->makeSound();
-    std::cout << "meta_wrong_animal sound: ";
+    std::cout << "\033[34mmeta_wrong_animal sound:\033[0m ";
     meta_wrong_animal->makeSound();
     std::cout << std::endl;
-    std::cout << "Freeing the memory-----" << std::endl;
+    std::cout << "\033[34mFreeing the memory-----\033[0m" << std::endl;
 	delete wrong_cat;
 	delete meta_wrong_animal;
     return 0;
 }
-
-/*
-int	main(void)
-{
-	std::cout << "---------- WrongAnimal & WrongCat ----------" << std::endl;
-
-	const WrongAnimal* wrong_cat = new WrongCat();
-	const WrongAnimal* meta_wrong_animal = new WrongAnimal();
-
-	std::cout << std::endl;
-
-	std::cout << wrong_cat->getType() << "-> "; 
-	wrong_cat->makeSound();
-
-	meta_wrong_animal->makeSound();
-
-	std::cout << std::endl;
-
-	delete wrong_cat;
-	delete meta_wrong_animal;
-
-	return 0;
-}
-*/

@@ -25,8 +25,6 @@ class Animal
 
     protected:
         std::string type;
-
-    private:
 };
 
 
