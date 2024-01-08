@@ -6,7 +6,7 @@ RM = rm -rf
 
 GENERAL = Bureaucrat
 
-NAME = a.out
+NAME = a.out_Ex00
 SRCS = $(addsuffix .cpp, $(GENERAL))\
 	   main.cpp
 
