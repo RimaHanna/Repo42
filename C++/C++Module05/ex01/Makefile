@@ -4,9 +4,9 @@ INCLUDE = -I./includes
 VPATH = srcs
 RM = rm -rf
 
-GENERAL = Bureaucrat
+GENERAL = Bureaucrat Form
 
-NAME = a.out_ex00
+NAME = a.out_ex01
 SRCS = $(addsuffix .cpp, $(GENERAL))\
 	   main.cpp
 

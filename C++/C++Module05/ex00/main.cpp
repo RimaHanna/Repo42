@@ -1,8 +1,5 @@
 #include "Bureaucrat.hpp"
 
-# define HIGHEST_GRADE 1
-# define LOWEST_GRADE 150
-
 int main(void)
 {
 std::cout << "\033[33mGENERAL\033[0m" << std::endl;
@@ -89,8 +86,6 @@ std::cout << "\033[33mGENERAL\033[0m" << std::endl;
 			std::cout << bullshit << std::endl;
 			bullshit.incrementGrade();
 			std::cout << bullshit << std::endl;
-            bullshit.setGrade(160);
-            std::cout << bullshit << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << e.what() << std::endl;

@@ -1,16 +1,8 @@
 #include "Bureaucrat.hpp"
 
-const char *Bureaucrat::GradeTooHighException::what() const throw(){
-    return "Bureaucrat exception: Grade is too high!";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw(){
-    return "Bureaucrat exception: Grade is too low!";
-}
-
 Bureaucrat::Bureaucrat(void){
     if (LOGS_ENABLED)
-        std::cout << "Default constructor called!" << std::endl; 
+        std::cout << "Default Bureaucrat constructor called!" << std::endl; 
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade){
@@ -18,19 +10,17 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade
         throw Bureaucrat::GradeTooHighException();
     if (grade > LOWEST_GRADE)
         throw Bureaucrat::GradeTooLowException();
-    std::cout << "Constructor called!" << std::endl;
+    std::cout << "Bureaucrat constructor called!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other){
-    *this = other;
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade){
     std::cout << "Bureaucrat " << this->getName() << " copy constructor called!" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &other){
     if (this != &other)
     {
-    	const_cast<std::string&>(this->_name) = other._name;
-        this->_grade = other._grade;
+        _grade = other.getGrade();
     }
     std::cout << "Bureaucrat " << this->getName() << " copy assignement operator called!" << std::endl;
     return *this;
@@ -60,9 +50,19 @@ void Bureaucrat::decrementGrade(void){
     this->_grade = this->_grade + 1;
 }
 
+void Bureaucrat::signForm(Form &form) {
+    try {
+        form.beSigned(*this);
+        std::cout << "Bureaucrat " << this->_name << " signed " << form.getName() << std::endl;
+    } catch(const std::exception& e) {
+        std::cerr << "Bureaucrat " << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
 std::ostream &operator<<(std::ostream &stream, Bureaucrat &Bureaucrat)
 {
     stream << Bureaucrat.getName() << ", bureaucrat grade " 
         << Bureaucrat.getGrade();
     return (stream);
 }
+
