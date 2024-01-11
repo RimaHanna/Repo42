@@ -48,55 +48,26 @@ int main(void)
 		}
 
 		std::cout << std::endl;
-		std::cout << "\033[33mTEST 3 \033[0m" << std::endl;
-		try
-		{
-			// Able to sign all forms
-			Bureaucrat	s1("Student1", HIGHEST_GRADE);
-			std::cout << s1 << std::endl;
-
-			Form	c1("C1", HIGHEST_GRADE, 2);
-			Form	c2("C2", 90, LOWEST_GRADE);
-			std::cout << c1 << std::endl;
-			std::cout << c2 << std::endl;
-
-			c1.beSigned(s1);
-			c2.beSigned(s1);
-			c1.beSigned(s1);
-
-			std::cout << c1 << std::endl;
-			std::cout << c2 << std::endl;
-		}
-		catch (std::exception& e) {
-			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << std::endl;
 		std::cout << "\033[33mTEST 4 \033[0m" << std::endl;
-		try
-		{
-			// Unable to sign any form
-			Bureaucrat	s2("Student2", LOWEST_GRADE);
-			std::cout << s2 << std::endl;
+		try {
+        Bureaucrat studentR("Roy", 11);
+        Form form("exam1", 12, 11);
 
-			Form	c3("C3", HIGHEST_GRADE, 2);
-			std::cout << c3 << std::endl;
+        studentR.signForm(form);
 
-			// Exception will be thrown
-			c3.beSigned(s2);
-			std::cout << c3 << std::endl;
-		}
-		catch (std::exception& e) {
-			std::cerr << e.what() << std::endl;
+        std::cout << form << std::endl;
+    	} 
+		catch (std::exception &e) {
+    	    std::cout << e.what() << std::endl;
 		}
 
 		std::cout << std::endl;
 		std::cout << "\033[33mTEST 5 \033[0m" << std::endl;
 		try {
-        Bureaucrat bureaucrat("Roy",11);
+        Bureaucrat studentR("Roy", 11);
         Form form("exam1", 10, 11);
 
-        bureaucrat.signForm(form);
+        studentR.signForm(form);
 
         std::cout << form << std::endl;
     	} 
