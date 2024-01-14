@@ -35,8 +35,10 @@ void	RobotomyRequestForm::executed(const Bureaucrat &bureaucrat) const
 	int	success;
 
 	/* Set Seed */
-	srand((unsigned) time(NULL));
-	success = rand() % 2;
+	// Two seperate functions that initialize and call the generator of random numbers
+	srand((unsigned) time(NULL)); // initialize the random generator engine
+	success = rand() % 2; // gets a random number form the generator
+    std::cout << "\033[36mDrilling noises...\033[0m" << std::endl;
 	(void)bureaucrat;
 	if (success)
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;

@@ -74,11 +74,11 @@ int main(void)
 			std::cout << robotomy << std::endl;
 			std::cout << pardon << std::endl;
 			
-			std::cout << "\n --------------------- \n\n";
+			std::cout << "\n ----------------------- \n\n";
 			Oli.executeAForm(shrubbery);
-			std::cout << "\n --------------------- \n\n";
+			std::cout << "\n ----------------------- \n\n";
 			Oli.executeAForm(robotomy);
-			std::cout << "\n --------------------- \n\n";
+			std::cout << "\n ----------------------- \n\n";
 			Oli.executeAForm(pardon);
 		}
 		catch (std::exception &e)
