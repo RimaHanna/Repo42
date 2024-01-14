@@ -2,7 +2,7 @@
 
 Form::Form() : _name("unnamed"), _gradeToSign(5), _gradeToExecute(6){
     if (LOGS_ENABLED)
-        std::cout << "Default Form constructor called!" << std::endl; 
+        std::cout << "Form default constructor called!" << std::endl; 
 }
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) 

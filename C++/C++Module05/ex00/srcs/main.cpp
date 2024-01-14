@@ -7,8 +7,10 @@ std::cout << "\033[33mGENERAL\033[0m" << std::endl;
 		// Constructor
 		Bureaucrat	a("RIMA", 87);
 		// Copy Constructor
+		std::cout << "1" << std::endl;
 		Bureaucrat	b(a);
 		// Copy assignment
+		std::cout << "2" << std::endl;
 		Bureaucrat	c = b;
 
 		// ostream overload

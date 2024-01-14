@@ -1,45 +1,49 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <iostream>
 
 class Bureaucrat;
 
 class Form
 {
-    private:
-        const std::string _name;
-        bool _signed;
-        const int _gradeToSign;
-        const int _gradeToExecute;
-        Form();
-        
-    public:
-        Form(const std::string& name, int gradeToSign, int gradeToExecute); // in the constructor the boolean need to be false
-        Form(const Form &other);
-        Form &operator = (const Form &other);
-        ~Form(void);
+	private:
+		std::string const	_name;
+		bool				_isSigned;
+		int const			_gradeToSign;
+		int const			_gradeToExecute;
+	public:
+		/* Constructors & Destructors */
+		Form(void);
+		Form(std::string const &name, int const &gradeTosign, int const &gradeTo_gradeToExecute);
+		Form(Form const &copy);
+		~Form(void);
 
-        std::string getName(void) const;
-        bool getSigned(void) const;
-        int getGradeToSign(void) const;
-        int getGradeToExecute(void) const;
+		/* Basic Operators */
+		Form const	&operator=(Form const &copy);
 
-        void beSigned(const Bureaucrat &bureaucrat);
+		/* Getters & Setters */
+		std::string const	&getName(void) const;
+		bool const			&getIsSigned(void) const;
+		int const			&getGradeToSign(void) const;
+		int const			&getGradeToExecute(void) const;
 
-        class GradeTooHighException : public std::exception{
-        public:
-            virtual const char *what() const throw() { 
-                return "Form exception: Grade is too high!";}
-        };
+		/* Main Member Functions */
+		void	beSigned(Bureaucrat &bureaucrat);
 
-        class GradeTooLowException : public std::exception{
-        public:
-            virtual const char *what() const throw() { 
-                return "Form exception: Grade is too low!";}
-        };
+		/* Exceptions */
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual char const	*what(void) const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual char const	*what(void) const throw();
+		};
 };
 
-std::ostream &operator<<(std::ostream &stream, const Form &form);
+std::ostream	&operator<<(std::ostream &str, Form const &form);
 
 #endif // FORM_HPP

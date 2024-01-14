@@ -1,37 +1,45 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-INCLUDE = -I./includes
-VPATH = srcs
-RM = rm -rf
+NAME		=	a.out_ex01
 
-GENERAL = Bureaucrat Form
+CPP			=	c++
 
-NAME = a.out_ex01
-SRCS = $(addsuffix .cpp, $(GENERAL))\
-	   main.cpp
+CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-OBJ_DIR = obj
-OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+#directories
+SRC_DIR		=	srcs/
+OBJ_DIR		=	obj/
+INC_DIR		=	includes/
 
+#source files
+SRC_FILES	=	Bureaucrat.cpp main.cpp Form.cpp
+
+OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
+
+#paths
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
+
+#all rule
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+#compile the executable
+$(NAME): $(OBJ)
+	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p obj
+#compile objects
+$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CPP) $(CPPFLAGS) -I $(INC_DIR) -o $@ -c $<
 
-$(OBJ_DIR)/%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
-
+#clean rule
 clean:
-	$(RM) $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
+#fclean rule
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
+#re rule
 re: fclean all
 
+#phony
 .PHONY: all clean fclean re
-
-#.SILENT:
