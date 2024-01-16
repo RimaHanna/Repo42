@@ -1,4 +1,4 @@
-NAME		=	a.out_ex02
+NAME		=	a.out_ex03
 
 CPP			=	c++
 
@@ -14,7 +14,7 @@ INC_DIR		=	includes/
 #source files
 SRC_FILES	=	Bureaucrat.cpp main.cpp AForm.cpp \
 				PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp Intern.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 

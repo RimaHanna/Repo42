@@ -21,6 +21,8 @@ class PresidentialPardonForm: public AForm
 
 		/* Main Member Functions */
 		void	executed(Bureaucrat const &bureaucrat) const;
+		static AForm *makeForm(AForm *aform, std::string const &type, std::string const &target);
+		std::string const	&getTarget(void) const;
 };
 
 std::ostream	&operator<<(std::ostream &str, PresidentialPardonForm const &form);
