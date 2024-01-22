@@ -24,7 +24,6 @@ Form::Form(Form const &copy): _name(copy._name), _isSigned(copy._isSigned), _gra
 Form::~Form(void)
 {
 	std::cout << "Form " << this->getName() << " default destructor has been called" << std::endl;
-
 }
 
 Form const	&Form::operator=(const Form &copy)

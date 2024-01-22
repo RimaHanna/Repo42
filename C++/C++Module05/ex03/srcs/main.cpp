@@ -7,37 +7,38 @@
 
 int main(void)
 {
-	Intern		bob;
+	Intern		rima;
 	AForm		*form;
-	Bureaucrat	karen("Karen", 50);
+	Bureaucrat	Roy("Roy", 50);
 
-	// Test how all forms are created properly execpt for the last one
+	std::cout << "\033[33mTest 1 all forms are created properly except for the last one\033[0m" << std::endl;
 	try
 	{
-		form = bob.makeForm("robotomy request", "Alice");
+		form = rima.makeForm("robotomy request", "Annah");
 		delete form;
-		form = bob.makeForm("shrubbery creation", "Charlie");
+		form = rima.makeForm("shrubbery creation", "Celia");
 		delete form;
-		form = bob.makeForm("presidential pardon", "David");
+		form = rima.makeForm("presidential pardon", "Dany");
 		delete form;
-		form = bob.makeForm("random request", "Elisa");
+		form = rima.makeForm("random request", "Clay");
 		delete form;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Caught exception: " << e.what() << std::endl;
+		std::cout << "\033[31mCaught exception: \033[0m" << e.what() << std::endl;
 	}
 
-	// Test some Actions with available form
-	std::cout << "------------------------------------" << std::endl;
-	form = bob.makeForm("shrubbery creation", "Fred");
-	form->beSigned(karen);
-	karen.executeAForm(*form);
+	std::cout << std::endl;
+	std::cout << "\033[33mTest 2: test some Actions with available form \033[0m"<< std::endl;
+	form = rima.makeForm("shrubbery creation", "Fred");
+	form->beSigned(Roy);
+	Roy.executeAForm(*form);
 	delete form;
-	std::cout << "------------------------------------" << std::endl;
-	form = bob.makeForm("presidential pardon", "Georgia");
-	karen.signAForm(*form);
-	karen.executeAForm(*form);
+
+	std::cout << std::endl;
+	form = rima.makeForm("presidential pardon", "Georgia");
+	Roy.signAForm(*form);
+	Roy.executeAForm(*form);
 	delete form;
 	return (0);
 }

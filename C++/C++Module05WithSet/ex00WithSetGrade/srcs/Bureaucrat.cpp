@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 
+
 Bureaucrat::Bureaucrat(void){
     if (LOGS_ENABLED)
         std::cout << "Default constructor called!" << std::endl; 

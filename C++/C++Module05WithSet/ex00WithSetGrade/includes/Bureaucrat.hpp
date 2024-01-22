@@ -16,9 +16,6 @@
  * exception (try ... catch). If an intermediate caller catches the exception 
  * it will not buble up to main, and main will no be aware of the exception. 
 */
-// I could have added a function to setGrade, and did the validation of the 
-// grade in this function instead of doing it in the constructor and the
-// incerment and decrement functions
 
 class Bureaucrat
 {
@@ -41,7 +38,6 @@ class Bureaucrat
         const std::string& getName(void) const;
         
         int getGrade(void) const;
-        void setGrade(int grade);
 
         void incrementGrade(void);
         void decrementGrade(void);
@@ -49,6 +45,7 @@ class Bureaucrat
     private:
         const std::string _name;
         int _grade;
+        void setGrade(int grade);
         Bureaucrat(void);
 };
 

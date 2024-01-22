@@ -13,7 +13,7 @@
 
 class Form; // Forward declaration to avoid circular dependency
 /* The purpose of the forward declaration is to break any potential 
- *circular dependencies between the Bureaucrat and Form classes. 
+ * circular dependencies between the Bureaucrat and Form classes. 
  * Circular dependencies occur when two or more classes depend on each other, 
  * leading to a situation where one class cannot be fully defined without the other. 
  * By using a forward declaration, you provide just enough information for the 
