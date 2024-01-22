@@ -7,37 +7,52 @@
 using std::cout;
 using std::endl;
 
-// Detect the type of the literal
-	// type int
-	// type one char
-	// type pseudo literals
-
 static int get_Size(const std::string& literal)
 {
 	int size = literal.length();
 	return size;
 }
 
-void displayAsciiCharacter(int value) {
+/*-----------------------Display--------------------------*/
+
+static bool endsWithDotZero(const std::string& str)
+{
+    size_t length = str.length();
+
+    if (length >= 2 && str[length - 2] == '.' && str[length - 1] == '0')
+        return true;
+    return false;
+}
+
+static bool endsWithDotZeroF(const std::string& str)
+{
+    size_t length = str.length();
+
+    if (length >= 3  && str[length - 3] == '.' && str[length - 2] == '0' && str[length - 1] == 'f')
+        return true;
+    return false;
+}
+
+void displayAsciiCharacter(int value)
+{
     if (value >= 32 && value <= 126) {
         // Displayable ASCII character
         char asciiChar = static_cast<char>(value);
         cout << "char: '" << asciiChar << "'" << endl;
-    } else {
-        // Non-displayable ASCII character
-        cout << "char: Non Displayable" << endl;
     }
+	else 
+        cout << "char: Non Displayable" << endl;
 }
 
-void displayAsciiValue(char character) {
+void displayAsciiValue(char character)\
+{
     int asciiValue = static_cast<int>(character);
     cout << "int: " << asciiValue << endl;
     cout << "float: " << asciiValue << ".0f" << endl;
     cout << "int: " << asciiValue << ".0" <<endl;
-
 }
 
-/*---------------------checking what type------------------------------------*/
+/*---------------------detect the type------------------------------------*/
 
 static bool isInt(const std::string& literal)
 {
@@ -96,8 +111,10 @@ static bool isDouble(const std::string& literal)
 			countComma++;
 		if (countComma > 1)
 			return 0;
-		if ((literal[i] < '0' || literal[i] > '9') && literal[i] != '.' && literal[size - 1] == 'f')
+  		if ((literal[i] < '0' || literal[i] > '9') && literal[i] != '.' && literal[size - 1] == 'f')
+		{
 			return 0;
+		}
 		i++;
 	}
 	if (countComma == 1)
@@ -129,12 +146,11 @@ static const char* isFloatPseudoLiterals(const std::string& literal) // with the
 		return 0;
 }
 
-
 /*-----------------------transforming from the actual string to the type--------------------------*/
 
-static int ft_stoi(const std::string& literal)
+static long int ft_stoi(const std::string& literal)
 {
-	int num;
+	long int num;
 	std::stringstream ss(literal);
 
 	ss >> num;
@@ -159,12 +175,16 @@ static float ft_stof(const std::string& literal)
 	return num;
 }
 
+/*-----------------------convert function---------------------------*/
+
 void ScalarConverter::convert(const std::string& literal)
 {
+	bool isCondition = 0;
 	const char *doublePseudo;
 	doublePseudo = isDoublePseudoLiterals(literal); // -inf, +inf, nan
 	if (doublePseudo)
 	{
+		isCondition = 1;
 		cout << "char: impossible" << endl;
 		cout << "int: impossible" << endl;
 		cout << "float: " << doublePseudo << 'f' << endl;
@@ -175,6 +195,7 @@ void ScalarConverter::convert(const std::string& literal)
 	floatPseudo = isFloatPseudoLiterals(literal);
 	if (floatPseudo)
 	{
+		isCondition = 1;
 		cout << "char: impossible" << endl;
 		cout << "int: impossible" << endl;
 		cout << "float: " << floatPseudo << endl;
@@ -186,50 +207,67 @@ void ScalarConverter::convert(const std::string& literal)
 			cout << "double: " << "nan" << endl;
 	}
 
-	/*-------------------------------------------------------*/
-
 	if(isInt(literal))
 	{
-		cout << "isInt" << endl;
-		int num = ft_stoi(literal);
+		isCondition = 1;
+		long int num = ft_stoi(literal);
+    	if (num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min())
+		{
+        	std::cerr << "Error: Conversion from double to int would result in overflow." << std::endl;
+        	return ;
+		}
 		displayAsciiCharacter(num);
 		cout << "int: " << num << endl;
 		cout << "Float: " << num << ".0f" << endl;
 		cout << "Double: " << num << ".0" << endl;
-
 	}
 
-	else if (isOneChar(literal))
+	if (isOneChar(literal))
 	{
-		cout << "isOnechar" << endl;
+		isCondition = 1;
 		cout << "char: '" << literal[0] << "'"<< endl;
 		displayAsciiValue(literal[0]);
 	}
 	
-
-	else if (isFloat(literal))
+	if (isFloat(literal))
 	{
-		cout << "isFloatNumber" << std::endl;
+		isCondition = 1;
 		int intNum = ft_stoi(literal);
 		displayAsciiCharacter(intNum);
 		cout << "int: " << intNum << endl;
 		float num = ft_stof(literal);
-		cout << "Float: " << num << "f" << endl;
-		cout << "Double: " << num << endl;
-
+		if (endsWithDotZeroF(literal))
+			cout << "Float: " << num << ".0f" << endl;
+		else
+			cout << "Float: " << num << "f" << endl;
+		if (endsWithDotZeroF(literal))
+			cout << "Double: " << num << ".0" << endl;
+		else 
+			cout << "Double: " << num << endl;
 	}
 
-	else if (isDouble(literal))
+	if (isDouble(literal))
 	{
-		cout << "is Double Number" << std::endl;
-		int intNum = ft_stoi(literal);
+		isCondition = 1;
+		long int intNum = ft_stoi(literal);
+    	if (intNum > std::numeric_limits<int>::max() || intNum < std::numeric_limits<int>::min())
+		{
+        	std::cerr << "Error: Conversion from double to int would result in overflow." << std::endl;
+        	return ;
+		}
 		displayAsciiCharacter(intNum);
 		cout << "int: " << intNum << endl;
-		double num = ft_stod(literal);
-		cout << "Float: " << num << "f" << endl;
-		cout << "Double: " << num << endl;
+		long double num = ft_stod(literal);
+		if (endsWithDotZero(literal))
+			cout << "Float: " << num << ".0f" << endl;
+		else
+			cout << "Float: " << num << "f" << endl;
+		if (endsWithDotZero(literal))
+			cout << "Double: " << num << ".0" << endl;
+		else 
+			cout << "Double: " << num << endl;
 	}
 
-	else
+	if (isCondition == 0)
 		cout << "Error: The input is not valid for conversion to int, char, float, or double." << std::endl;
 }
