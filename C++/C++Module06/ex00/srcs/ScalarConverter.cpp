@@ -170,7 +170,7 @@ void ScalarConverter::convert(const std::string& literal) {
     if (isInt(literal)) {
         long int num = ft_stoi(literal);
         if (num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min()) {
-            std::cerr << "Error: Conversion from double to int would result in overflow." << std::endl;
+            std::cerr << "\033[31mError: Conversion from int to float would result in overflow.\033[0m" << std::endl;
             return;
         }
         displayAsciiCharacter(num);
@@ -185,7 +185,11 @@ void ScalarConverter::convert(const std::string& literal) {
     }
 
     if (isFloat(literal)) {
-        int intNum = ft_stoi(literal);
+        long int intNum = ft_stoi(literal);
+        if (intNum > std::numeric_limits<int>::max() || intNum < std::numeric_limits<int>::min()) {
+            std::cerr << "\033[31mError: Conversion from float to int would result in overflow.\033[0m" << std::endl;
+            return;
+        }
         displayAsciiCharacter(intNum);
         float num = ft_stof(literal);
         cout << "int: " << intNum << "\nfloat: ";
@@ -200,7 +204,7 @@ void ScalarConverter::convert(const std::string& literal) {
     if (isDouble(literal)) {
         long int intNum = ft_stoi(literal);
         if (intNum > std::numeric_limits<int>::max() || intNum < std::numeric_limits<int>::min()) {
-            std::cerr << "Error: Conversion from double to int would result in overflow." << std::endl;
+            std::cerr << "\033[31mError: Conversion from double to int would result in overflow.\033[0m" << std::endl;
             return;
         }
         displayAsciiCharacter(intNum);
@@ -214,5 +218,5 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    cout << "Error: The input is not valid for conversion to int, char, float, or double." << std::endl;
+    cout << "\033[31mError: The input is not valid for conversion to int, char, float, or double.\033[0m" << std::endl;
 }
