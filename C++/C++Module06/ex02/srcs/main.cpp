@@ -14,18 +14,19 @@ using std::endl;
 Base* generate(void)
 {
     srand((unsigned) time(NULL)); 
-    int choice = rand() % 3;
+    char choice = "ABC"[rand() % 3];
+
+    cout << "Type '" << choice << "' created" << endl;
     switch (choice)
     {
-        case 0:
+        case 'A':
             return new A();
-        case 1:
+        case 'B':
             return new B();
-        case 2:
+        case 'C':
             return new C();
-        default:
-            return 0;
     }
+    return NULL;
 }
 
 void identify(Base* p)
