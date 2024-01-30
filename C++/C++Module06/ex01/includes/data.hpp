@@ -5,7 +5,6 @@
 
 typedef struct data_t
 {
-    int value;
     std::string aloha;
 }Data;
 

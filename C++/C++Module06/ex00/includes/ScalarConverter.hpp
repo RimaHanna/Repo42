@@ -22,24 +22,7 @@
 
 
 // REMARKS:
-// class should not be instantiated ny users
-
-/* Functions to convert from a string to an int, float, or double
-	std::stoi (String to Integer)
-	std::stof (String to Float)
-	std::stod (String to Double)
-	c_str (string to a char) 
-		//returns a pointer to a null-terminated sequence of 
-								characters representing the contents of the std::string
-			exemple:
-				std::string str = "Hello, World!"
-				const char* charPtr = str.c_str();
-		// for non-const char* use the data() function
-			exemple:
-				std::string str = "Hello, World!"
-				char* charPtr = &str[0]; // or charPtr = str.data();
-				data() might lead to undefined behavior i want to modify the string
-*/
+// class should not be instantiated by users
 
 class ScalarConverter
 {

@@ -15,7 +15,6 @@ using std::endl;
  * pointer from that integer.
 */
 
-
 int main(int argc, char **argv)
 {
     if (argc > 1 && argv)
@@ -24,19 +23,19 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    Data *obj = new Data();
-    cout << "Data object created" << endl;
+    Data *object = new Data();
+    cout << "Data objectect created" << endl;
 
-    obj->aloha = "Bonnnnjourrr !!!";
-    cout << obj->aloha << endl;
-    cout << "Address for obj before serialized is " << obj << endl; 
+    object->aloha = "Bonnnnjourrr !!!";
+    cout << object->aloha << endl;
+    cout << "Address for object before serialized is " << object << endl; 
 
     uintptr_t serialized;
-    serialized = Serializer::serialize(obj);
+    serialized = Serializer::serialize(object);
     cout << "Address for serialized is " << serialized << endl; 
 
-    obj = Serializer::deserialize(serialized);
-    cout << "Address for obj after serialized and deserialized is " << obj << endl; 
+    object = Serializer::deserialize(serialized);
+    cout << "Address for object after serialized and deserialized is " << object << endl; 
 
     return 0;
 }

@@ -1,27 +1,24 @@
 #include "Serializer.hpp"
 
-Serializer::Serializer()
-{
-}
+Serializer::Serializer() {}
 
-Serializer::Serializer(const Serializer &other)
-{
+Serializer::Serializer(const Serializer &other) {
     *this = other;
 }
 
-Serializer &Serializer::operator=(const Serializer &other)
-{
+Serializer &Serializer::operator=(const Serializer &other) {
     (void) other;
     return *this;
 }
 
+Serializer::~Serializer() {}
+
 // Use reinterpret_cast for low-level type conversions between pointers and integral types.
+// Integral types in C++ refer to data types that represent whole numbers 
+// without any fractional or decimal part: int, unsigned int, short, unsigned short, long, unsigned long, 
+// long long, unsigned long long, char, unsigned char
 // Exercise caution, as it bypasses type safety and can lead to undefined behavior if misused.
 // Prefer safer alternatives like static_cast, dynamic_cast, or const_cast when applicable.
-
-Serializer::~Serializer()
-{
-}
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
