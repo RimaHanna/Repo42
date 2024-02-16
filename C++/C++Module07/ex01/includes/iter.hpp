@@ -11,7 +11,7 @@
 template <typename T>
 void printElement(T &element)
 {
-    std::cout << element << " " << std::endl;
+    std::cout << element << std::endl;
 }
 
 // The iter function template takes an array, its length, and a function,

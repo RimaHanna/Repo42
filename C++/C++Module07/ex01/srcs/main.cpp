@@ -23,7 +23,7 @@ int main()
     size_t doubleArrayLength = sizeof(doubleArray) / sizeof(double);
 
     std::cout << "Iterating over doubleArray: " << std::endl;
-    iter(doubleArray, doubleArrayLength, ::printElement<double>);
+    ::iter(doubleArray, doubleArrayLength, ::printElement<double>);
     std::cout << std::endl;
 
     // Test with an array of strings
