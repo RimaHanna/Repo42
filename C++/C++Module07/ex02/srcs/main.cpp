@@ -1,55 +1,51 @@
 #include "Array.hpp"
-#include <iostream>
 
 int main() {
-    // Test default constructor
-    Array<int> intArrayDefault;
-    std::cout << "Default Size: " << intArrayDefault.size() << std::endl;
-    std::cout << std::endl;
+    try {
+        // Create an empty array
+        Array<int> emptyArray;
+        std::cout << "Empty array size: " << emptyArray.getSize() << std::endl;
 
-    // Test constructor with size
-    Array<double> doubleArray(5);
-    doubleArray[0] = 1;
-    doubleArray[1] = 1;
-    doubleArray[2] = 1;
-    doubleArray[3] = 1;
-    doubleArray[4] = 1;
-    std::cout << "Double Array Size: " << doubleArray.size() << std::endl;
-    std::cout << std::endl;
+        // Create an array with 5 elements
+        Array<int> intArray(5);
+        std::cout << "Array size: " << intArray.getSize() << std::endl;
 
-    // Test copy constructor
-    Array<double> doubleArrayCopy(doubleArray);
-    std::cout << "Double Array Copy Size: " << doubleArrayCopy.size() << std::endl;
-    std::cout << std::endl;
+        // Access elements and modify
+        for (size_t i = 0; i < intArray.getSize(); ++i) {
+            intArray[i] = i * 10;
+        }
 
-    // Test copy assignment operator
-    Array<double> doubleArrayAssign;
-    doubleArrayAssign = doubleArray;
-    std::cout << "Double Array Assign Size: " << doubleArrayAssign.size() << std::endl;
-    std::cout << "Value at index 2 (assigned): " << doubleArrayAssign[2] << std::endl;
-    std::cout << std::endl;
+        // Display elements
+        std::cout << "Array elements: ";
+        for (size_t i = 0; i < intArray.getSize(); ++i) {
+            std::cout << intArray[i] << " ";
+        }
+        std::cout << std::endl;
 
-    // Test subscript operator
-    std::cout << "Subscript operator" << std::endl;
-    doubleArray[2] = 3.14;
-    std::cout << "Value at index 2: " << doubleArray[2] << std::endl;
-    std::cout << std::endl;
-    
-    // Test const subscript operator
-    std::cout << "const subscript operator" << std::endl;
-    const Array<double> constDoubleArray(doubleArray);
-    std::cout << "Value at index 2 (const): " << constDoubleArray[2] << std::endl;
-    // Test accessing out-of-bounds index (should throw an exception)
-    try
-    {
-        cout << "Try value at doubleArray[10]: " << endl;
-        std::cout << doubleArray[10] << std::endl;
-    } 
-    catch (const std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        // Access an element out of range (should throw an exception)
+        intArray[intArray.getSize()] = 100; // Access one element beyond the array size
+
+        // Copy constructor and assignment operator tests
+        Array<int> copiedArray = intArray; // Copy constructor
+        Array<int> assignedArray;
+        assignedArray = intArray; // Assignment operator
+
+        // Modify the original array and check if it affects the copied/assigned arrays
+        intArray[0] = 999;
+        std::cout << "Copied array after modifying original: ";
+        for (size_t i = 0; i < copiedArray.getSize(); ++i) {
+            std::cout << copiedArray[i] << " ";
+        }
+        std::cout << std::endl;
+
+        std::cout << "Assigned array after modifying original: ";
+        for (size_t i = 0; i < assignedArray.getSize(); ++i) {
+            std::cout << assignedArray[i] << " ";
+        }
+        std::cout << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
