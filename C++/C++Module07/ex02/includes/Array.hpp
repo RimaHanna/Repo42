@@ -29,7 +29,6 @@ public:
 
     // Subscript operator
     T& operator[](size_t index);
-    const T& operator[](size_t index) const; // Const version of the subscript operator
 
     // Member function to get the size of the array
     size_t getSize() const;

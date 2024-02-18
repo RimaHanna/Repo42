@@ -57,15 +57,6 @@ T& Array<T>::operator[](size_t index)
 }
 
 template<typename T>
-const T& Array<T>::operator[](size_t index) const
-{
-    if (index >= size) {
-        throw std::out_of_range("Index out of range");
-    }
-    return elements[index];
-}
-
-template<typename T>
 size_t Array<T>::getSize() const
 {
     return size;
