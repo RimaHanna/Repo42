@@ -3,7 +3,7 @@
 
 # include <string>
 # include <exception>
-# include <algorithm>
+# include <algorithm> // std::find
 
 class EasyFindException : public std::exception
 {
@@ -15,9 +15,9 @@ class EasyFindException : public std::exception
 };
 
 template<typename T>
-bool easyfind(T& container, int find)
+bool easyfind(T& container, int toFind)
 {
-	if (std::find(container.begin(), container.end(), find) == container.end())
+	if (std::find(container.begin(), container.end(), toFind) == container.end())
 		throw EasyFindException();
 	else
         return true;

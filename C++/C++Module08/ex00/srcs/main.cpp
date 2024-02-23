@@ -1,20 +1,23 @@
 #include <iostream>
 #include <vector>
 #include "easyfind.hpp"
+#include <set>
+#include <list>
 
 int main(void)
 {
-	// VECTOR //
-	std::vector<int> vec1;
+	// USING VECTOR CONTAINER std::vector<int> named vec1 //
+	std::cout << "USING VECTOR CONTAINER" << std::endl;
+	std::vector<int> vec1; 
 	for (size_t i = 0; i <= 10; i += 1)
 		vec1.push_back(i); // add elements to the end of the vector
 
-	std::cout << "vec1 = ";
+	std::cout << "Display vec1: " << std::endl;
 	for (std::vector<int>::iterator iter = vec1.begin(), endIter = vec1.end(); iter != endIter; iter += 1)
 		std::cout << *iter << " ";
 	std::cout << std::endl;
     std::cout << std::endl;
-	// will find
+
     std::cout << "TEST 1 find the number 5" << std::endl;
     try
     {
@@ -28,7 +31,6 @@ int main(void)
     }
 	std::cout << std::endl;
     
-	// will raise EasyFindException
     std::cout << "TEST 2 find the number 20" << std::endl;
 	try
     {
@@ -38,7 +40,30 @@ int main(void)
     {
 		std::cerr << e.what() << '\n';
 	}
-	return 0;
+	std::cout << std::endl;
+
+// USING LIST CONTAINER
+	std::cout << "USING LIST CONTAINER" << std::endl;
+    std::list<int> myList;
+    myList.push_back(10);
+    myList.push_back(20);
+    myList.push_back(30);
+    myList.push_back(40);
+    myList.push_back(50);
+
+    try
+	{
+		int toFind = 30;
+        bool found = easyfind(myList, toFind);
+        if (found)
+            std::cout << "Element " << toFind << " found in list." << std::endl;
+    }
+	catch (const std::exception& e)
+	{
+        std::cerr << e.what() << std::endl;
+    }
+
+    return 0;
 }
 
 /*
