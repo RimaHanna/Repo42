@@ -87,4 +87,25 @@ depends on factors like the required operations, performance characteristics,
 and memory overhead. 
 The STL containers are designed to be efficient and easy to use, providing a 
 wide range of options to suit various programming needs.
+
+Explanation depending on my requirements and the characteristics of the container
+Vectors (std::vector): Suitable for scenarios where you need dynamic resizing 
+and random access to elements. They are efficient for searching 
+if the elements are not sorted.
+
+Lists (std::list): Suitable for scenarios where you frequently 
+insert or delete elements from the middle of the container. 
+However, searching in a list is less efficient compared 
+to vectors due to linear traversal.
+
+Sets (std::set) and Maps (std::map): Suitable for scenarios
+ where you need unique elements or key-value pairs. 
+ Sets are ordered containers, while maps are associative 
+ containers that store key-value pairs. Searching in sets 
+ and maps is efficient due to their internal data 
+ structures (e.g., binary search tree for sets).
+
+Deque (std::deque): Suitable for scenarios where you 
+need efficient insertion and deletion at both ends 
+of the container. It also supports random access like vectors.
 */

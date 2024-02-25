@@ -1,0 +1,35 @@
+THE CONTAINER STACK
+-------------------
+
+A std::stack is a container adapter provided by the C++ Standard 
+Library that provides a LIFO (Last-In-First-Out) data structure. 
+It operates on top of an underlying container, such as std::deque, 
+std::vector, or std::list, but it restricts access to elements to 
+just one end: the "top" of the stack. This means that elements can 
+only be added or removed from the top of the stack, and not from any other position.
+
+Here are some key characteristics and operations associated with std::stack:
+
+1. LIFO Structure: Items are added and removed in a last-in, first-out manner. 
+The last element added to the stack is the first one to be removed.
+
+2. Operations:
+
+push(): Adds an element to the top of the stack.
+pop(): Removes the element from the top of the stack.
+top(): Returns a reference to the top element of the stack without removing it.
+empty(): Checks if the stack is empty.
+size(): Returns the number of elements in the stack.
+
+3. Underlying Container: std::stack does not have its own storage mechanism; 
+it is implemented on top of an underlying container. By default, std::deque 
+is used as the underlying container, but you can specify a different 
+container type as a template parameter when declaring a stack.
+
+4. Usage: std::stack is often used in scenarios where elements need to be accessed 
+in the reverse order of their insertion, such as implementing undo functionality 
+in text editors, backtracking algorithms, or in solving certain types of problems 
+in data structures and algorithms.
+
+-------------------------------------------------------------------------------------
+

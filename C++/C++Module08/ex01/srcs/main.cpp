@@ -16,14 +16,14 @@ int main(void)
 	sp.addNumber(9);
 	sp.addNumber(11);
 	sp.printStorage();
-	cout << sp.shortestSpan() << endl;
-	cout << sp.longestSpan() << endl;
-
+	cout << "shortest span: " << sp.shortestSpan() << endl;
+	cout << "longest span: " << sp.longestSpan() << endl;
 
 	// Pushing beyond N elements
 	try
     {
 		sp.addNumber(42);
+		std::cout << "A number was added to the span" << std::endl;
 	}
 	catch(const std::exception& e) {
 		cerr << e.what() << '\n';
@@ -41,10 +41,9 @@ int main(void)
 		cerr << e.what() << '\n';
 	}
 
-	Span sp2 = Span(6);
-
-    sp2.addNumber(2);
-	sp2.addRandomNumbers(5);
+	Span sp2(11);
+	sp2.addNumber(2);
+	sp2.addRandomNumbers(10);
 	cout << "sp2 ";
 	sp2.printStorage();
 	cout << "sp2.shortestSpan = " << sp2.shortestSpan() << endl;

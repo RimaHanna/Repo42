@@ -41,6 +41,7 @@ void Span::addRandomNumbers(uint32_t quantity)
 
 int Span::shortestSpan(void)
 {
+	//  create a local copy of the storage vector using the copy constructor
     std::vector<int> vect = this->storage;
 
     if (vect.size() < 2)
@@ -48,15 +49,19 @@ int Span::shortestSpan(void)
         throw NoSpanFoundException();
     }
 
+	// sorting the elements in the vect vector in ascending order
     std::sort(vect.begin(), vect.end());
 
+	//  initialize the shortest variable with the maximum possible 
+	// integer value using std::numeric_limits<int>::max(). 
+	// This ensures that any valid span will be smaller than this initial value.
     int shortest = std::numeric_limits<int>::max();
     for (size_t i = 1; i < vect.size(); ++i)
     {
+		// abs calculate the absolute difference between them
         int span = std::abs(vect[i] - vect[i - 1]);
-        if (span < shortest) {
-            shortest = span;
-        }
+        if (span < shortest)
+        	shortest = span;
     }
     return shortest;
 }
@@ -67,7 +72,7 @@ int Span::longestSpan(void)
 
 	if (vect.size() < 2)
 		throw Span::NoSpanFoundException();
-
+		
 	int min = *std::min_element(vect.begin(), vect.end());
 	int max = *std::max_element(vect.begin(), vect.end());
 
