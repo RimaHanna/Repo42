@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 			continue;
 
         std::string valueFromInputFile = line.substr(seperator + 2);
-		if (!btc.isRateCorrectFormat(valueFromInputFile))
+		if (!btc.isValueRateCorrectFormat(valueFromInputFile))
 			continue;
 		float rate = ft_stof(valueFromInputFile);
 

@@ -79,11 +79,10 @@ bool BitcoinExchange::isDateCorrectFormat(const std::string& date)
 	return true;
 }
 
-// CHECK in DETAILS ............................
-bool BitcoinExchange::isRateCorrectFormat(const std::string& rate)
+bool BitcoinExchange::isValueRateCorrectFormat(const std::string& rate)
 {
-	if (rate.empty() || rate.find_first_not_of("0123456789.-") != std::string::npos
-	||  rate.at(0) == '.' || rate.find('.', rate.length() - 1) != std::string::npos)
+	if (rate.empty() || (rate.find_first_not_of("0123456789.-") != std::string::npos)
+	||  rate.at(0) == '.' || (rate.find('.', rate.length() - 1) != std::string::npos)) // check for Empty Rate String or Invalid Characters
 		std::cerr << "Error: invalid rate => " << "\"" << rate << "\"" << '\n';
 	else if (rate.at(0) == '-')
 		std::cerr << "Error: not a positive number." << '\n';
@@ -92,22 +91,20 @@ bool BitcoinExchange::isRateCorrectFormat(const std::string& rate)
 	else
 		return true;
 	return false;
-
 }
 
-// CHECK in DETAILS ............................
 bool BitcoinExchange::isValideDate(const std::string& date)
 {
-    	std::string s;
+    std::string str;
 	int year, month, day;
 	std::istringstream iss(date);
 	int i = 0;
 
-	while (std::getline(iss, s, '-'))
+	while (std::getline(iss, str, '-')) // extract what is before the Hyphen and putting it in str
 	{
 		if (i == 0)
 		{
-			year = ft_stou(s);
+			year = ft_stou(str);
 			if (year < 2009 || year > 2022)
 			{
 				std::cerr << "Error: year is not at the database => " << "\"" << date << "\"" << '\n';
@@ -116,7 +113,7 @@ bool BitcoinExchange::isValideDate(const std::string& date)
 		}
 		if (i == 1)
 		{
-			month = ft_stou(s);
+			month = ft_stou(str);
 			if (month < 1 || month > 12)
 			{
 				std::cerr << "Error: incorrect month => " << "\"" << date << "\"" << '\n';
@@ -125,7 +122,7 @@ bool BitcoinExchange::isValideDate(const std::string& date)
 		}
 		if (i == 2)
 		{
-			day = ft_stou(s);
+			day = ft_stou(str);
 			if ((day < 1 || day > 31)
 			||  (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
 			||  (day > 28 && month == 2))

@@ -20,7 +20,7 @@ class BitcoinExchange
 		void readFromCSVDatabase(std::ifstream& db);
 		float getRateFromDatabase(const std::string& date);
 		bool isDateCorrectFormat(const std::string& date);
-		bool isRateCorrectFormat(const std::string& rate);
+		bool isValueRateCorrectFormat(const std::string& rate);
 		bool isValideDate(const std::string& date);
 };
 
