@@ -4,7 +4,7 @@ unsigned int ft_stou(const std::string& str);
 
 float ft_stof(const std::string& str);
 
-int errorOccur(std::string str)
+int errorGenerated(std::string str)
 {
     std::cerr << str << std::endl;
     return 1;
@@ -14,17 +14,17 @@ int main(int argc, char **argv)
 {
     (void) argv;
     if (argc != 2)
-        return errorOccur ("error: invalid number of arguments");
+        return errorGenerated ("error: invalid number of arguments");
 
     // ifstream: input file stream used to read data from files.
     // std::ifstream::in : indicate the mode in which the file should be opened, in this case it is input(reading)
     std::ifstream inputFile(argv[1], std::ifstream::in);
     if (!inputFile.is_open())
-        return errorOccur("error: the argument provided is not a valid input file");
+        return errorGenerated("error: the argument provided is not a valid input file");
 
     std::ifstream CSVFile("./data.csv", std::ifstream::in);
     if (!CSVFile.is_open())
-        return errorOccur("error: could not open csv file");
+        return errorGenerated("error: could not open csv file");
 
     BitcoinExchange btc;
     btc.readFromCSVDatabase(CSVFile);
